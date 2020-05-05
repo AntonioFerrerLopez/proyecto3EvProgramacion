@@ -1,0 +1,8 @@
+nombre,numplaca,edad,departamento,foto
+"Sara Barroso",6678ZC,37,A3,NULL
+"Joan Sazas",4598CV,44,A2,NULL
+"Luis Lopez",7765AS,32,B1,NULL
+"Matias Prats",3221DF,29,A2,NULL
+"Luisa Perez",3444BB,52,B1,NULL
+"Antonia San Juan",7689DF,59,B1,NULL
+"Pablo Capdevila",3466SD,62,B2,NULL
