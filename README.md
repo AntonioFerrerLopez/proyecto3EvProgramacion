@@ -57,3 +57,5 @@ juntas pero ordenadas por policía.
 # La conexión debe ser creada una sola vez en la clase ComisariaDAO.
 > LOGO/ICONO
 # La aplicación debe tener un logo que se visualizará como icono de la aplicación en la barra de tareas.
+
+:)
