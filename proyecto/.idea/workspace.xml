@@ -2,49 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="701f65f2-fb9c-4ddd-b808-49a61550366d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/dataSources/a1b8b62e-3021-4b7a-80b0-33299cc0644f.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/dataSources/a1b8b62e-3021-4b7a-80b0-33299cc0644f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/ComisariaPolicias.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/DBaccessData.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/src/main/java/VISTA/Principal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/src/main/resources/Images/dgpLogo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/src/main/resources/Images/dgpLogoGR.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/src/main/resources/Principal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/target/classes/Images/dgpLogo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/target/classes/Images/dgpLogoGR.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/target/classes/META-INF/proyecto.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/target/classes/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/target/classes/Principal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ANT/target/classes/VISTA/Principal.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ComisariaPolicia.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VISTA/Principal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/dgpLogo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/dgpLogoGR.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1b8b62e-3021-4b7a-80b0-33299cc0644f.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1b8b62e-3021-4b7a-80b0-33299cc0644f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ComisariaPolicias.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBaccessData.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VISTA/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VISTA/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VISTA/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VISTA/Principal.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588690252208</updated>
-      <workItem from="1588690253503" duration="2103000" />
+      <workItem from="1588690253503" duration="2618000" />
     </task>
     <servers />
   </component>
@@ -118,22 +80,22 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="281" key="GridCell.Tab.0.bottom" timestamp="1588692326936">
+    <state width="1878" height="281" key="GridCell.Tab.0.bottom" timestamp="1588692684544">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1588692326936" />
-    <state width="1878" height="281" key="GridCell.Tab.0.center" timestamp="1588692326935">
+    <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1588692684544" />
+    <state width="1878" height="281" key="GridCell.Tab.0.center" timestamp="1588692684544">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1588692326935" />
-    <state width="1878" height="281" key="GridCell.Tab.0.left" timestamp="1588692326935">
+    <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1588692684544" />
+    <state width="1878" height="281" key="GridCell.Tab.0.left" timestamp="1588692684544">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1588692326935" />
-    <state width="1878" height="281" key="GridCell.Tab.0.right" timestamp="1588692326936">
+    <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1588692684544" />
+    <state width="1878" height="281" key="GridCell.Tab.0.right" timestamp="1588692684544">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588692326936" />
+    <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588692684544" />
     <state x="443" y="104" width="1026" height="839" key="SettingsEditor" timestamp="1588692228523">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
