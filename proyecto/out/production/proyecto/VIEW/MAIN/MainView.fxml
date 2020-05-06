@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="319.0" prefWidth="600.0" style="-fx-background-color: WHITE; -fx-border-color: blue; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.MAIN.MainView">
+   <children>
+      <ImageView fitHeight="104.0" fitWidth="114.0" layoutX="52.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/dgpLogoGR.jpeg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="218.0" layoutY="142.0" prefHeight="136.0" prefWidth="164.0">
+         <children>
+            <JFXButton fx:id="btnInsertPenalty" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#openViewInsertPenalty" prefHeight="43.0" prefWidth="161.0" style="-fx-border-color: BLUE;" text="Insertar Multa" textAlignment="CENTER" textFill="#2586c2" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font name="Droid Sans Fallback" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnListOfPenalties" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#openViewListOfPenalties" prefHeight="43.0" prefWidth="161.0" style="-fx-border-color: BLUE;" text="Listar multas " textAlignment="CENTER" textFill="#2586c2" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font name="Droid Sans Fallback" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnPoliceData" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#openViewDataPolice" prefHeight="43.0" prefWidth="161.0" style="-fx-border-color: BLUE;" text="Datos policiales" textAlignment="CENTER" textFill="#2586c2" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font name="Droid Sans Fallback" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Label fx:id="lbltoday" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="193.0" layoutY="70.0" prefHeight="27.0" prefWidth="294.0" text="Fecha actual" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="Dank Mono Regular" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="132.0" layoutY="16.0" prefHeight="67.0" prefWidth="415.0" text="GESTOR DE MULTAS Y DATOS POLICIALES ">
+         <font>
+            <Font name="Dank Mono Regular" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnExit" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="502.0" layoutY="274.0" onAction="#endProgram" prefHeight="27.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="Salir" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="Droid Sans Fallback" size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <FontAwesomeIconView fill="#f82929" glyphName="SIGN_OUT" size="20.0" text="" wrappingWidth="18.85714340209961" />
+         </graphic>
+      </JFXButton>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</AnchorPane>
