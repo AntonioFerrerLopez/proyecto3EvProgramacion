@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="319.0" prefWidth="600.0" style="-fx-background-color: WHITE; -fx-border-color: blue; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VISTA.Principal">
    <children>
@@ -65,13 +65,16 @@
             <Font name="Dank Mono Regular" size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnExit" alignment="CENTER" buttonType="RAISED" cancelButton="true" contentDisplay="CENTER" layoutX="516.0" layoutY="267.0" onAction="#endProgram" prefHeight="27.0" prefWidth="63.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="SALIR" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton fx:id="btnExit" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="502.0" layoutY="274.0" onAction="#endProgram" prefHeight="27.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="Salir" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
-            <Font name="Droid Sans Fallback" size="13.0" />
+            <Font name="Droid Sans Fallback" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <FontAwesomeIconView fill="#f82929" glyphName="SIGN_OUT" size="20.0" text="" wrappingWidth="18.85714340209961" />
+         </graphic>
       </JFXButton>
    </children>
    <cursor>
