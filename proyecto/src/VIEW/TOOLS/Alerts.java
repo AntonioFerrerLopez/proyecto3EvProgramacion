@@ -6,11 +6,11 @@ import javafx.scene.control.ButtonType;
 import java.util.Optional;
 
 public class Alerts {
-    private  Alerts instanceOf = null ;
+    private  static Alerts instanceOf = null ;
 
     private Alerts(){ }
 
-    public Alerts instanceOf(){
+    public static Alerts instanceOf(){
         if(instanceOf == null ){
             instanceOf = new Alerts();
         }
