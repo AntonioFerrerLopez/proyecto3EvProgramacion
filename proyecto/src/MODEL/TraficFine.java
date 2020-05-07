@@ -1,18 +1,18 @@
 package MODEL;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class TraficFine {
     private Long id ;
     private String description ;
-    private LocalDate date;
+    private LocalDateTime date;
     private Double ammount ;
     private Integer idPolice ;
     private String nifOffender ;
     private Integer idtypeOfFine;
 
-    public TraficFine(Long id, String description, LocalDate date, Double ammount, Integer idPolice, String nifOffender, Integer idtypeOfFine) {
+    public TraficFine(Long id, String description, LocalDateTime date, Double ammount, Integer idPolice, String nifOffender, Integer idtypeOfFine) {
         this.id = id;
         this.description = description;
         this.date = date;
@@ -38,11 +38,16 @@ public class TraficFine {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDateToDb() {
+        LocalDateTime dateTime = this.date;
+        return Date.valueOf(dateTime.toLocalDate());
+    }
+
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

@@ -12,54 +12,69 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         this.conn =  DbConnector.dbInstance().getConn();
     }
 
-    private Connection conn;
-    private String insertSQL = "INSERT INTO multastipo (descripcion, importe, tipo, carnetpuntos)  VALUES (?,?,?,?)";
-    private String obtainAllSQL = "SELECT * from multastipo";
-    private String obtainOneByIdSQL = "SELECT * from multastipo  WHERE id = ? ";
-    private String updateOneByIdSQL = "UPDATE multastipo SET descripcion = ?, importe = ?, tipo = ?,  carnetpuntos= ? WHERE id = ?";
-    private String deleteOneByIdSQL = "DELETE * from multastipo  WHERE id = ? ";
+    private final Connection conn;
+    private final String insertSQL = "INSERT INTO multastipo (descripcion, importe, tipo, carnetpuntos)  VALUES (?,?,?,?)";
+    private final String obtainAllSQL = "SELECT * from multastipo";
+    private final String obtainOneByIdSQL = "SELECT * from multastipo  WHERE id = ? ";
+    private final String updateOneByIdSQL = "UPDATE multastipo SET descripcion = ?, importe = ?, tipo = ?,  carnetpuntos= ? WHERE id = ?";
+    private final String deleteOneByIdSQL = "DELETE * from multastipo  WHERE id = ? ";
 
 
     @Override
     public boolean insert(PoliceRelatedTraficFine polRelFine) throws SQLException {
+        boolean isInserted;
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, polRelFine.getDescription());
         statement.setDouble(2, polRelFine.getAmmount());
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
-        return statement.execute();
+        isInserted = statement.execute();
+        DbConnector.dbInstance().closeConnection();
+        return isInserted;
     }
 
     @Override
     public List<PoliceRelatedTraficFine> obtainAll() throws SQLException {
+        List<PoliceRelatedTraficFine> listPolRelFine ;
         Statement obtainAllStm = conn.createStatement();
-        return formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
+        listPolRelFine = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
+        DbConnector.dbInstance().closeConnection();
+        return listPolRelFine;
     }
 
     @Override
     public PoliceRelatedTraficFine obtainOneById(Long id) throws SQLException {
         int FIRST_ELEMENT = 0;
+        PoliceRelatedTraficFine polRelFine;
         PreparedStatement obtainOnePs = conn.prepareStatement(obtainOneByIdSQL);
         obtainOnePs.setLong(1, id);
-        return formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
+        polRelFine = formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
+        DbConnector.dbInstance().closeConnection();
+        return polRelFine;
     }
 
     @Override
     public boolean updateOneById(Long id, PoliceRelatedTraficFine polRelFine) throws SQLException {
-        PreparedStatement statement  = conn.prepareStatement(insertSQL);
+        boolean isUpdated;
+        PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, polRelFine.getDescription());
         statement.setDouble(2, polRelFine.getAmmount());
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
         statement.setLong(5, id);
-        return statement.execute();
+        isUpdated = statement.execute();
+        DbConnector.dbInstance().closeConnection();
+        return isUpdated;
     }
 
     @Override
     public boolean deleteOneById(Long id) throws SQLException {
+        boolean isDeleted;
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
-        return deletePs.execute();
+        isDeleted = deletePs.execute();
+        DbConnector.dbInstance().closeConnection();
+        return isDeleted;
     }
 
     private List<PoliceRelatedTraficFine> formatToObject(ResultSet resultFromDb) throws SQLException {

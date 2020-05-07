@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mariadb_java_client_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DATA/DAO/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODEL/Police.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODEL/PoliceRelatedTraficFine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MODEL/TraficFine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/MAIN/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/MAIN/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/TOOLS/Alerts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/TOOLS/Alerts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/TOOLS/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/TOOLS/Alerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DataPolice.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/InsertPenalty.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ListOfPenalties.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/externalLibraries/.fuse_hidden0000246200000002" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/externalLibraries/.fuse_hidden0000246900000001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto/DATA/DAO/TraficFineDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto/MODEL/TraficFine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MODEL/TraficFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODEL/TraficFine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,13 +74,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="701f65f2-fb9c-4ddd-b808-49a61550366d" name="Default Changelist" comment="" />
+      <changelist id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="" />
       <created>1588690252208</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588690252208</updated>
       <workItem from="1588690253503" duration="6140000" />
       <workItem from="1588771797443" duration="2197000" />
+      <workItem from="1588841017561" duration="3704000" />
     </task>
     <servers />
   </component>
@@ -111,11 +101,12 @@
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="555" y="188" width="802" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588791619639" />
-    <state x="768" y="236" width="494" height="556" key="#com.intellij.ide.util.MemberChooser" timestamp="1588808518101">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state x="1920" y="236" width="376" height="620" key="#com.intellij.ide.util.MemberChooser" timestamp="1588844712278">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="768" y="236" width="494" height="556" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588808518101" />
     <state x="768" y="236" width="376" height="575" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1053@0.0.1920.1053" timestamp="1588693277239" />
+    <state x="1920" y="236" width="376" height="620" key="#com.intellij.ide.util.MemberChooser/0.0.3840.1053@0.0.3840.1053" timestamp="1588844712278" />
     <state x="752" y="221" width="407" height="605" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1588802909227">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
@@ -124,25 +115,25 @@
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789742564" />
-    <state width="1878" height="153" key="GridCell.Tab.0.bottom" timestamp="1588807710939">
+    <state width="1878" height="153" key="GridCell.Tab.0.bottom" timestamp="1588809522222">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588807710939" />
+    <state width="1878" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431433" />
-    <state width="1878" height="153" key="GridCell.Tab.0.center" timestamp="1588807710939">
+    <state width="1878" height="153" key="GridCell.Tab.0.center" timestamp="1588809522222">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="153" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588807710939" />
+    <state width="1878" height="153" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
-    <state width="1878" height="153" key="GridCell.Tab.0.left" timestamp="1588807710939">
+    <state width="1878" height="153" key="GridCell.Tab.0.left" timestamp="1588809522222">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="153" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588807710939" />
+    <state width="1878" height="153" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431431" />
-    <state width="1878" height="153" key="GridCell.Tab.0.right" timestamp="1588807710939">
+    <state width="1878" height="153" key="GridCell.Tab.0.right" timestamp="1588809522222">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="153" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588807710939" />
+    <state width="1878" height="153" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
     <state x="443" y="104" width="1026" height="839" key="SettingsEditor" timestamp="1588789745507">
       <screen x="0" y="0" width="1920" height="1053" />
@@ -157,9 +148,10 @@
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="693" y="290" width="526" height="466" key="extract.method.dialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588806432989" />
-    <state x="801" y="287" width="310" height="473" key="refactoring.ChangeSignatureDialog" timestamp="1588807813431">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state x="1300" y="287" width="584" height="473" key="refactoring.ChangeSignatureDialog" timestamp="1588843159499">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="801" y="287" width="310" height="473" key="refactoring.ChangeSignatureDialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588807813431" />
+    <state x="1300" y="287" width="584" height="473" key="refactoring.ChangeSignatureDialog/0.0.3840.1053@0.0.3840.1053" timestamp="1588843159499" />
   </component>
 </project>
