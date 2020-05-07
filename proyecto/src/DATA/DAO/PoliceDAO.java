@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class        PoliceDAO implements DAO<Police>{
+public class PoliceDAO implements DAO<Police>{
 
     public PoliceDAO() throws SQLException {
         this.conn =  DbConnector.dbInstance().getConn();
@@ -33,6 +33,20 @@ public class        PoliceDAO implements DAO<Police>{
         DbConnector.dbInstance().closeConnection();
         return isInserted;
     }
+
+    @Override
+    public List<Police> insertFromList(List<Police> policeList) {
+        List<Police> notInsertedPolice = new ArrayList<>();
+        for(Police police : policeList ){
+            try {
+                insert(police);
+            } catch (SQLException throwables) {
+                notInsertedPolice.add(police);
+            }
+        }
+        return notInsertedPolice;
+    }
+
 
     @Override
     public List<Police> obtainAll() throws SQLException {

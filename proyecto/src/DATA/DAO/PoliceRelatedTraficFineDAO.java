@@ -34,6 +34,12 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     }
 
     @Override
+    public List<PoliceRelatedTraficFine> insertFromList(List<PoliceRelatedTraficFine> goL) {
+        return null;
+    }
+
+
+    @Override
     public List<PoliceRelatedTraficFine> obtainAll() throws SQLException {
         List<PoliceRelatedTraficFine> listPolRelFine ;
         Statement obtainAllStm = conn.createStatement();

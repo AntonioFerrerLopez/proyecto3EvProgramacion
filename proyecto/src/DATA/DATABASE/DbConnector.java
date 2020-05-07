@@ -12,7 +12,7 @@ public class DbConnector {
     private final String JDBC_DRIVER = "jdbc:mariadb://";
     private final String DB_SERVER = "192.168.1.52";
     private final String DB_PORT = ":3306/";
-    private final String DB_NAME  = "Comisaria";
+    private final String DB_NAME  = "comisaria";
     private final String DB_USER_NAME = "adminComisaria";
     private final String DB_PASSWD = "uPWQoZfkyedimter";
 

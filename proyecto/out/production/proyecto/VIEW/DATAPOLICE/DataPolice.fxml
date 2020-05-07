@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSnackbar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.DATAPOLICE.DataPolice">
+<AnchorPane fx:id="rootPane" prefHeight="188.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.DATAPOLICE.DataPolice">
    <children>
-      <JFXButton fx:id="btnClose" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="496.0" layoutY="342.0" onAction="#closeView" prefHeight="27.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="Salir" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton fx:id="btnClose" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="492.0" layoutY="140.0" onAction="#closeView" prefHeight="27.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="Salir" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="Droid Sans Fallback" size="11.0" />
          </font>
@@ -19,5 +21,12 @@
             <FontAwesomeIconView fill="#f82929" glyphName="SIGN_OUT" size="20.0" text="" wrappingWidth="18.85714340209961" />
          </graphic>
       </JFXButton>
+      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="262.0" layoutY="94.0" onAction="#loadAgents" style="-fx-border-color: blue;" text="CARGAR" />
+      <Label layoutX="108.0" layoutY="14.0" prefHeight="69.0" prefWidth="384.0" text="GESTOR DE AGENTES ">
+         <font>
+            <Font name="Khmer OS System" size="34.0" />
+         </font>
+      </Label>
+      <JFXSnackbar fx:id="snackInfo" layoutX="301.0" layoutY="205.0" />
    </children>
 </AnchorPane>

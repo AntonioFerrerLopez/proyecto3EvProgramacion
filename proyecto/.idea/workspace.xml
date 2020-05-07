@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_1_4_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/DATA/DAO/TraficFineDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/MODEL/TraficFine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto/resources/externalLibraries/jfoenix-8.0.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/FilesOfPoliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/FilesOfPoliceDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MODEL/TraficFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODEL/TraficFine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MODEL/Police.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODEL/Police.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/externalLibraries/jfoenix-8.0.8.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +51,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/externalLibraries/mariadb-java-client-2.6.0.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/externalLibraries/jfoenix-1.4.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.38505748" />
@@ -81,7 +88,8 @@
       <updated>1588690252208</updated>
       <workItem from="1588690253503" duration="6140000" />
       <workItem from="1588771797443" duration="2197000" />
-      <workItem from="1588841017561" duration="3704000" />
+      <workItem from="1588841017561" duration="6452000" />
+      <workItem from="1588859145311" duration="17069000" />
     </task>
     <servers />
   </component>
@@ -89,6 +97,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="589" y="208" width="734" height="631" key="#Inspections" timestamp="1588874853598">
+      <screen x="0" y="0" width="3840" height="1053" />
+    </state>
+    <state x="589" y="208" width="734" height="631" key="#Inspections/0.0.3840.1053@0.0.3840.1053" timestamp="1588874853598" />
     <state x="555" y="188" width="802" height="719" key="#Intentions" timestamp="1588802833367">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
@@ -97,61 +109,77 @@
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="632" y="149" width="648" height="749" key="#Main/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789017536" />
-    <state x="555" y="188" width="802" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588791619640">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state x="555" y="170" width="802" height="706" key="#Plugins" timestamp="1588844926004">
+      <screen x="0" y="0" width="3840" height="1053" />
+    </state>
+    <state x="555" y="170" width="802" height="706" key="#Plugins/0.0.3840.1053@0.0.3840.1053" timestamp="1588844926004" />
+    <state x="54" y="382" width="802" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588875166174">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="555" y="188" width="802" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588791619639" />
-    <state x="1920" y="236" width="376" height="620" key="#com.intellij.ide.util.MemberChooser" timestamp="1588844712278">
+    <state x="54" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3840.1053@0.0.3840.1053" timestamp="1588875166174" />
+    <state x="1217" y="182" width="376" height="620" key="#com.intellij.ide.util.MemberChooser" timestamp="1588871979257">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="768" y="236" width="494" height="556" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588808518101" />
     <state x="768" y="236" width="376" height="575" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1053@0.0.1920.1053" timestamp="1588693277239" />
-    <state x="1920" y="236" width="376" height="620" key="#com.intellij.ide.util.MemberChooser/0.0.3840.1053@0.0.3840.1053" timestamp="1588844712278" />
+    <state x="1217" y="182" width="376" height="620" key="#com.intellij.ide.util.MemberChooser/0.0.3840.1053@0.0.3840.1053" timestamp="1588871979257" />
     <state x="752" y="221" width="407" height="605" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1588802909227">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="752" y="221" width="407" height="605" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588802909227" />
-    <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl" timestamp="1588789742564">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state x="642" y="268" width="639" height="505" key="FileChooserDialogImpl" timestamp="1588864259158">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789742564" />
-    <state width="1878" height="153" key="GridCell.Tab.0.bottom" timestamp="1588809522222">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state x="642" y="268" key="FileChooserDialogImpl/0.0.3840.1053@0.0.3840.1053" timestamp="1588864259158" />
+    <state width="1878" height="248" key="GridCell.Tab.0.bottom" timestamp="1588876255179">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431433" />
-    <state width="1878" height="153" key="GridCell.Tab.0.center" timestamp="1588809522222">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state width="1878" height="248" key="GridCell.Tab.0.bottom/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255179" />
+    <state width="1878" height="248" key="GridCell.Tab.0.center" timestamp="1588876255179">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
-    <state width="1878" height="153" key="GridCell.Tab.0.left" timestamp="1588809522222">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state width="1878" height="248" key="GridCell.Tab.0.center/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255179" />
+    <state width="1878" height="248" key="GridCell.Tab.0.left" timestamp="1588876255178">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431431" />
-    <state width="1878" height="153" key="GridCell.Tab.0.right" timestamp="1588809522222">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state width="1878" height="248" key="GridCell.Tab.0.left/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255178" />
+    <state width="1878" height="248" key="GridCell.Tab.0.right" timestamp="1588876255179">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
-    <state x="443" y="104" width="1026" height="839" key="SettingsEditor" timestamp="1588789745507">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state width="1878" height="248" key="GridCell.Tab.0.right/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255179" />
+    <state x="0" y="104" width="1920" height="839" key="SettingsEditor" timestamp="1588864263011">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="443" y="104" key="SettingsEditor/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789745507" />
     <state x="443" y="104" width="1026" height="839" key="SettingsEditor/0.0.1920.1053@0.0.1920.1053" timestamp="1588692228523" />
+    <state x="0" y="104" width="1920" height="839" key="SettingsEditor/0.0.3840.1053@0.0.3840.1053" timestamp="1588864263011" />
     <state x="761" y="307" width="389" height="432" key="chooseDestDirectoryDialog" timestamp="1588690985495">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="761" y="307" width="389" height="432" key="chooseDestDirectoryDialog/0.0.1920.1053@0.0.1920.1053" timestamp="1588690985495" />
-    <state x="693" y="290" width="526" height="466" key="extract.method.dialog" timestamp="1588806432989">
-      <screen x="0" y="0" width="1920" height="1053" />
+    <state x="868" y="290" width="526" height="465" key="extract.method.dialog" timestamp="1588873546412">
+      <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="693" y="290" width="526" height="466" key="extract.method.dialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588806432989" />
+    <state x="868" y="290" width="526" height="465" key="extract.method.dialog/0.0.3840.1053@0.0.3840.1053" timestamp="1588873546412" />
     <state x="1300" y="287" width="584" height="473" key="refactoring.ChangeSignatureDialog" timestamp="1588843159499">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state x="801" y="287" width="310" height="473" key="refactoring.ChangeSignatureDialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588807813431" />
     <state x="1300" y="287" width="584" height="473" key="refactoring.ChangeSignatureDialog/0.0.3840.1053@0.0.3840.1053" timestamp="1588843159499" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1588875428085">
+      <screen x="0" y="0" width="3840" height="1053" />
+    </state>
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.3840.1053@0.0.3840.1053" timestamp="1588875428085" />
   </component>
 </project>

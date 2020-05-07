@@ -17,6 +17,9 @@ public class Police {
         this.photoLink = photoLink;
     }
 
+    public Police() {
+    }
+
     public Long getId() {
         return id;
     }
