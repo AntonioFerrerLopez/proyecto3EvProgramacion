@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_1_4_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/DATAPOLICE/DataPolice.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/resources/externalLibraries/jfoenix-8.0.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/FilesOfPoliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/FilesOfPoliceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DATABASE/DbConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MODEL/Police.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MODEL/Police.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/externalLibraries/jfoenix-8.0.8.jar" beforeDir="false" />
-    </list>
+    <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +72,7 @@
       <workItem from="1588690253503" duration="6140000" />
       <workItem from="1588771797443" duration="2197000" />
       <workItem from="1588841017561" duration="6452000" />
-      <workItem from="1588859145311" duration="17069000" />
+      <workItem from="1588859145311" duration="17791000" />
     </task>
     <servers />
   </component>
@@ -133,30 +116,30 @@
     </state>
     <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789742564" />
     <state x="642" y="268" key="FileChooserDialogImpl/0.0.3840.1053@0.0.3840.1053" timestamp="1588864259158" />
-    <state width="1878" height="248" key="GridCell.Tab.0.bottom" timestamp="1588876255179">
+    <state width="1878" height="248" key="GridCell.Tab.0.bottom" timestamp="1588877018143">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431433" />
-    <state width="1878" height="248" key="GridCell.Tab.0.bottom/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255179" />
-    <state width="1878" height="248" key="GridCell.Tab.0.center" timestamp="1588876255179">
+    <state width="1878" height="248" key="GridCell.Tab.0.bottom/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
+    <state width="1878" height="248" key="GridCell.Tab.0.center" timestamp="1588877018143">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
-    <state width="1878" height="248" key="GridCell.Tab.0.center/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255179" />
-    <state width="1878" height="248" key="GridCell.Tab.0.left" timestamp="1588876255178">
+    <state width="1878" height="248" key="GridCell.Tab.0.center/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
+    <state width="1878" height="248" key="GridCell.Tab.0.left" timestamp="1588877018143">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431431" />
-    <state width="1878" height="248" key="GridCell.Tab.0.left/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255178" />
-    <state width="1878" height="248" key="GridCell.Tab.0.right" timestamp="1588876255179">
+    <state width="1878" height="248" key="GridCell.Tab.0.left/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018142" />
+    <state width="1878" height="248" key="GridCell.Tab.0.right" timestamp="1588877018143">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
     <state width="1878" height="153" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
-    <state width="1878" height="248" key="GridCell.Tab.0.right/0.0.3840.1053@0.0.3840.1053" timestamp="1588876255179" />
+    <state width="1878" height="248" key="GridCell.Tab.0.right/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
     <state x="0" y="104" width="1920" height="839" key="SettingsEditor" timestamp="1588864263011">
       <screen x="0" y="0" width="3840" height="1053" />
     </state>
