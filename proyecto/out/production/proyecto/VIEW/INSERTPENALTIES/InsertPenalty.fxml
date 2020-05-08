@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
@@ -53,9 +54,9 @@
       </JFXButton>
       <AnchorPane fx:id="anchorPolice" layoutX="7.0" layoutY="55.0" prefHeight="566.0" prefWidth="336.0" style="-fx-background-color: lightwhiteBlue; -fx-border-color: lightGrey;">
          <children>
-            <AnchorPane fx:id="anchorPoliceCard" layoutX="20.0" layoutY="287.0" prefHeight="236.0" prefWidth="304.0" style="-fx-border-color: blue; -fx-background-color: lightGRey;">
+            <AnchorPane fx:id="anchorPoliceCard" layoutX="20.0" layoutY="287.0" prefHeight="236.0" prefWidth="304.0" style="-fx-border-color: blue; -fx-background-color: LIGHTGREY;">
                <children>
-                  <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgPolice" fitHeight="69.0" fitWidth="63.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../resources/Images/dgpLogo.jpg" />
                      </image>
@@ -69,7 +70,7 @@
                                     <Font name="Dank Mono Regular" size="13.0" />
                                  </font>
                               </Label>
-                              <JFXTextField editable="false" prefHeight="26.0" prefWidth="150.0" />
+                              <JFXTextField fx:id="lblPoliceName" alignment="CENTER" editable="false" prefHeight="26.0" prefWidth="150.0" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -85,7 +86,7 @@
                                     <Font name="Dank Mono Regular" size="13.0" />
                                  </font>
                               </Label>
-                              <JFXTextField editable="false" prefHeight="26.0" prefWidth="149.0" />
+                              <JFXTextField fx:id="lblPolicePlate" alignment="CENTER" editable="false" prefHeight="26.0" prefWidth="149.0" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -101,7 +102,7 @@
                                     <Font name="Dank Mono Regular" size="13.0" />
                                  </font>
                               </Label>
-                              <JFXTextField editable="false" prefHeight="26.0" prefWidth="154.0" />
+                              <JFXTextField fx:id="lblPoliceDepartment" alignment="CENTER" editable="false" prefHeight="26.0" prefWidth="154.0" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -119,7 +120,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <TableView fx:id="tvPoliceSelector" layoutX="20.0" layoutY="14.0" prefHeight="236.0" prefWidth="304.0" tableMenuButtonVisible="true">
+            <TableView fx:id="tvPoliceSelector" layoutX="20.0" layoutY="14.0" onKeyPressed="#policeSelectedByKeyboard" onMouseClicked="#policeIsSelected" prefHeight="236.0" prefWidth="304.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn fx:id="numPlateCol" prefWidth="115.0" text="Numero Placa " />
                 <TableColumn fx:id="nameCol" prefWidth="188.0" text="Nombre" />
@@ -146,7 +147,7 @@
       </HBox>
       <AnchorPane fx:id="anchorPenalty" layoutX="356.0" layoutY="53.0" prefHeight="526.0" prefWidth="440.0" style="-fx-background-color: WHITE; -fx-border-color: red;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="133.0" layoutX="12.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="133.0" layoutX="11.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="3.0" prefHeight="26.0" prefWidth="226.0" text="BOLETIN DE MULTA" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="22.0" />
@@ -179,50 +180,66 @@
                   </HBox>
                   <HBox prefHeight="22.0" prefWidth="428.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="104.0" text="Infraccion:" textAlignment="CENTER">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="145.0" text="Hechos ocurridos:" textAlignment="CENTER">
                            <font>
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="53.0" prefWidth="428.0">
+                  <HBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="416.0">
                      <children>
                         <JFXTextField alignment="CENTER" prefHeight="26.0" prefWidth="418.0" />
                      </children>
                   </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="416.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="176.0" text="Tipo de infraccion" textAlignment="CENTER">
+                           <font>
+                              <Font name="Dank Mono Regular" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXComboBox fx:id="cmbTypeOfPenalty" onAction="#typeOfFineSelected" prefHeight="26.0" prefWidth="237.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
             </VBox>
-            <Spinner layoutX="21.0" layoutY="305.0" prefHeight="26.0" prefWidth="175.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="239.0" prefHeight="26.0" prefWidth="216.0" text="Calculo cuantia" textAlignment="CENTER">
+            <Spinner fx:id="priceSelector" editable="true" layoutX="20.0" layoutY="355.0" onMouseClicked="#priceChangedClick" prefHeight="26.0" prefWidth="175.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="289.0" prefHeight="26.0" prefWidth="216.0" text="Calculo cuantia" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="19.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="283.0" prefHeight="18.0" prefWidth="165.0" text="Seleccione la cuantia" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="334.0" prefHeight="18.0" prefWidth="165.0" text="Seleccione la cuantia" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="14.0" />
                </font>
             </Label>
-            <JFXCheckBox layoutX="214.0" layoutY="309.0" prefHeight="18.0" prefWidth="208.0" text="Aplicar Descuento de 20%" />
-            <VBox alignment="CENTER_RIGHT" layoutX="225.0" layoutY="440.0" prefHeight="72.0" prefWidth="196.0" spacing="10.0">
-               <children>
-                  <JFXButton fx:id="btnAccept" onAction="#registerPenaltyOnDb" style="-fx-border-color: blue;" text="ACEPTAR Y REGISTRAR" />
-                  <JFXButton fx:id="btnClean" onAction="#cleanAll" style="-fx-border-color: orange;" text="Limpiar formulario" />
-               </children>
-            </VBox>
-            <HBox layoutX="48.0" layoutY="385.0" prefHeight="36.0" prefWidth="374.0">
+            <JFXCheckBox fx:id="chDiscount" checkedColor="#105d9c" layoutX="213.0" layoutY="359.0" onAction="#discountChanged" prefHeight="18.0" prefWidth="208.0" text="Aplicar Descuento de 20%" />
+            <HBox layoutX="118.0" layoutY="428.0" prefHeight="36.0" prefWidth="304.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="208.0" text="Total a abonar:" textAlignment="CENTER">
                      <font>
                         <Font name="Dank Mono Regular" size="19.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="165.0" style="-fx-border-color: red;" text="1005.54 €" textAlignment="CENTER" textFill="RED">
+                  <Label fx:id="totalPenalty" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="165.0" style="-fx-border-color: red;" text="1005.54 €" textAlignment="CENTER" textFill="RED">
                      <font>
                         <Font name="Dank Mono Regular" size="19.0" />
                      </font>
                   </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="102.0" layoutY="489.0" prefHeight="30.0" prefWidth="336.0" spacing="10.0">
+               <children>
+                  <JFXButton fx:id="btnClean" onAction="#cleanAll" prefHeight="28.0" prefWidth="151.0" style="-fx-border-radius: 50%; -fx-border-color: ORANGE;" text="Limpiar formulario" />
+                  <JFXButton fx:id="btnAccept" onAction="#registerPenaltyOnDb" style="-fx-border-radius: 50; -fx-border-color: GREEN;" text="ACEPTAR Y REGISTRAR" />
                </children>
             </HBox>
          </children>

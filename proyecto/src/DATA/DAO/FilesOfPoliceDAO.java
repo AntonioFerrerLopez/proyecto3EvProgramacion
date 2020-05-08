@@ -37,7 +37,7 @@ public class FilesOfPoliceDAO {
                 police.setPolicePlateNumber(st.nextToken());
                 police.setAge(Integer.parseInt(st.nextToken()));
                 police.setDepartment(st.nextToken());
-                police.setPhotoLink(st.nextToken());
+                police.setPhotoLink(police.getPolicePlateNumber());
             policesOnFile.add(police);
         }
         return policesOnFile;

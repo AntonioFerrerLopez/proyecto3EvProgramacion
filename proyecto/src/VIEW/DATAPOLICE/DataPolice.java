@@ -74,7 +74,6 @@ public class DataPolice {
         for(Police policeNotInserted : policesNotInserted){
           msjError = msjError.concat(policeNotInserted.getName() + "\n");
         }
-        System.out.println(msjError);
         return msjError;
     }
 

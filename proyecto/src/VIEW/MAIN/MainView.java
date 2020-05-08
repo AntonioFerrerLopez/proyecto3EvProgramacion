@@ -1,5 +1,6 @@
 package VIEW.MAIN;
 
+import VIEW.TOOLS.Alerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,7 +56,8 @@ public class MainView implements Initializable{
             viewStage.setScene(viewScene);
             viewStage.showAndWait();
         } catch (IOException e) {
-            System.out.println(msjError);//TODO : Añadir Alert
+            Alerts.instanceOf().generateError(msjError + e.getMessage());
+            e.printStackTrace();
         }
     }
 

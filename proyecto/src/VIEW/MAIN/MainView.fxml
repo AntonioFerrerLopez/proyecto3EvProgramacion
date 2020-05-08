@@ -11,11 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD:proyecto/src/VIEW/MAIN/MainView.fxml
 <AnchorPane prefHeight="319.0" prefWidth="600.0" style="-fx-background-color: WHITE; -fx-border-color: blue; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.MAIN.MainView">
-=======
-<AnchorPane prefHeight="319.0" prefWidth="600.0" style="-fx-background-color: WHITE; -fx-border-color: blue; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VISTA.Principal">
->>>>>>> b069c67fb509d219074245e70bf1f84e0c2957a4:proyecto/src/main/resources/Principal.fxml
    <children>
       <ImageView fitHeight="104.0" fitWidth="114.0" layoutX="52.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
