@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="" />
+    <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VIEW/INSERTPENALTIES/InsertPenalty.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/INSERTPENALTIES/InsertPenalty.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VIEW/MAIN/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/MAIN/MainView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +42,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.38505748" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -73,6 +78,8 @@
       <workItem from="1588771797443" duration="2197000" />
       <workItem from="1588841017561" duration="6452000" />
       <workItem from="1588859145311" duration="17791000" />
+      <workItem from="1588888766838" duration="691000" />
+      <workItem from="1588926921910" duration="1368000" />
     </task>
     <servers />
   </component>
@@ -111,10 +118,10 @@
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="752" y="221" width="407" height="605" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588802909227" />
-    <state x="642" y="268" width="639" height="505" key="FileChooserDialogImpl" timestamp="1588864259158">
-      <screen x="0" y="0" width="3840" height="1053" />
+    <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl" timestamp="1588927008876">
+      <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789742564" />
+    <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588927008876" />
     <state x="642" y="268" key="FileChooserDialogImpl/0.0.3840.1053@0.0.3840.1053" timestamp="1588864259158" />
     <state width="1878" height="248" key="GridCell.Tab.0.bottom" timestamp="1588877018143">
       <screen x="0" y="0" width="3840" height="1053" />
@@ -140,10 +147,10 @@
     <state width="1878" height="153" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588809522222" />
     <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
     <state width="1878" height="248" key="GridCell.Tab.0.right/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
-    <state x="0" y="104" width="1920" height="839" key="SettingsEditor" timestamp="1588864263011">
-      <screen x="0" y="0" width="3840" height="1053" />
+    <state x="443" y="104" width="1920" height="839" key="SettingsEditor" timestamp="1588927011593">
+      <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state x="443" y="104" key="SettingsEditor/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588789745507" />
+    <state x="443" y="104" key="SettingsEditor/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588927011593" />
     <state x="443" y="104" width="1026" height="839" key="SettingsEditor/0.0.1920.1053@0.0.1920.1053" timestamp="1588692228523" />
     <state x="0" y="104" width="1920" height="839" key="SettingsEditor/0.0.3840.1053@0.0.3840.1053" timestamp="1588864263011" />
     <state x="761" y="307" width="389" height="432" key="chooseDestDirectoryDialog" timestamp="1588690985495">
