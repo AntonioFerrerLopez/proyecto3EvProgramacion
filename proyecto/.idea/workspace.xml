@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/PoliceRelatedTraficFineDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DATA/DAO/TraficFineDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/DATAPOLICE/DataPolice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/INSERTPENALTIES/InsertPenalty.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/INSERTPENALTIES/InsertPenalty.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VIEW/INSERTPENALTIES/InsertPenalty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/INSERTPENALTIES/InsertPenalty.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +78,7 @@
       <workItem from="1588841017561" duration="6452000" />
       <workItem from="1588859145311" duration="17791000" />
       <workItem from="1588888766838" duration="691000" />
-      <workItem from="1588926921910" duration="6490000" />
+      <workItem from="1588926921910" duration="7534000" />
     </task>
     <servers />
   </component>
@@ -127,28 +122,28 @@
     </state>
     <state x="632" y="268" width="639" height="505" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588927008876" />
     <state x="642" y="268" key="FileChooserDialogImpl/0.0.3840.1053@0.0.3840.1053" timestamp="1588864259158" />
-    <state width="1878" height="131" key="GridCell.Tab.0.bottom" timestamp="1588936112619">
+    <state width="1878" height="131" key="GridCell.Tab.0.bottom" timestamp="1588940079783">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="131" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588936112619" />
+    <state width="1878" height="131" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588940079783" />
     <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431433" />
     <state width="1878" height="248" key="GridCell.Tab.0.bottom/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
-    <state width="1878" height="131" key="GridCell.Tab.0.center" timestamp="1588936112619">
+    <state width="1878" height="131" key="GridCell.Tab.0.center" timestamp="1588940079783">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="131" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588936112619" />
+    <state width="1878" height="131" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588940079783" />
     <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
     <state width="1878" height="248" key="GridCell.Tab.0.center/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
-    <state width="1878" height="131" key="GridCell.Tab.0.left" timestamp="1588936112619">
+    <state width="1878" height="131" key="GridCell.Tab.0.left" timestamp="1588940079783">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="131" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588936112619" />
+    <state width="1878" height="131" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588940079783" />
     <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431431" />
     <state width="1878" height="248" key="GridCell.Tab.0.left/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018142" />
-    <state width="1878" height="131" key="GridCell.Tab.0.right" timestamp="1588936112619">
+    <state width="1878" height="131" key="GridCell.Tab.0.right" timestamp="1588940079783">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state width="1878" height="131" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588936112619" />
+    <state width="1878" height="131" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588940079783" />
     <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1588696431432" />
     <state width="1878" height="248" key="GridCell.Tab.0.right/0.0.3840.1053@0.0.3840.1053" timestamp="1588877018143" />
     <state x="443" y="104" width="1920" height="839" key="SettingsEditor" timestamp="1588927011593">
@@ -161,10 +156,10 @@
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
     <state x="761" y="307" width="389" height="432" key="chooseDestDirectoryDialog/0.0.1920.1053@0.0.1920.1053" timestamp="1588690985495" />
-    <state x="868" y="290" width="526" height="465" key="extract.method.dialog" timestamp="1588873546412">
-      <screen x="0" y="0" width="3840" height="1053" />
+    <state x="693" y="290" width="526" height="465" key="extract.method.dialog" timestamp="1588939713500">
+      <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state x="693" y="290" width="526" height="466" key="extract.method.dialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588806432989" />
+    <state x="693" y="290" width="526" height="466" key="extract.method.dialog/0.0.1920.1053/1920.0.1920.1080@0.0.1920.1053" timestamp="1588939713500" />
     <state x="868" y="290" width="526" height="465" key="extract.method.dialog/0.0.3840.1053@0.0.3840.1053" timestamp="1588873546412" />
     <state x="1300" y="287" width="584" height="473" key="refactoring.ChangeSignatureDialog" timestamp="1588843159499">
       <screen x="0" y="0" width="3840" height="1053" />

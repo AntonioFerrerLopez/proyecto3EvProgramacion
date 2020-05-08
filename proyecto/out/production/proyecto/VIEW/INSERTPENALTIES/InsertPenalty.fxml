@@ -119,11 +119,14 @@
                   </Label>
                </children>
             </AnchorPane>
-            <TableView fx:id="tvPoliceSelector" layoutX="20.0" layoutY="14.0" prefHeight="236.0" prefWidth="304.0">
+            <TableView fx:id="tvPoliceSelector" layoutX="20.0" layoutY="14.0" prefHeight="236.0" prefWidth="304.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn fx:id="numPlateCol" prefWidth="115.0" text="Numero Placa " />
                 <TableColumn fx:id="nameCol" prefWidth="188.0" text="Nombre" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children>
       </AnchorPane>
