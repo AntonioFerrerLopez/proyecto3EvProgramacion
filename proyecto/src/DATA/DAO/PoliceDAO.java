@@ -8,11 +8,7 @@ import java.util.List;
 
 
 public class PoliceDAO implements DAO<Police>{
-
-    public PoliceDAO() throws SQLException {
-        this.conn =  DbConnector.dbInstance().getConn();
-    }
-
+    private static PoliceDAO instance = null ;
     private final Connection conn;
     private final String insertSQL = "INSERT INTO policia (nombre, numplaca, edad, departamento, foto)  VALUES (?,?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from policia";
@@ -20,6 +16,16 @@ public class PoliceDAO implements DAO<Police>{
     private final String updateOneByIdSQL = "UPDATE policia SET nombre = ?, numplaca = ?, edad = ?, departamento = ?, foto = ? WHERE idPolicia = ?";
     private final String deleteOneByIdSQL = "DELETE * from policia  WHERE idPolicia = ? ";
 
+    private PoliceDAO() throws SQLException {
+        this.conn =  DbConnector.dbInstance().getConn();
+    }
+
+    public static PoliceDAO instanceOf() throws SQLException {
+        if(instance == null ){
+            instance = new PoliceDAO();
+        }
+        return instance;
+    }
     @Override
     public boolean insert(Police police) throws SQLException {
         boolean isInserted;

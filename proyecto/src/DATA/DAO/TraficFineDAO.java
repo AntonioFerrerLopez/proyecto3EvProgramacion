@@ -11,18 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TraficFineDAO implements DAO<TraficFine> {
-
-
-    public TraficFineDAO() throws SQLException {
-        this.conn =  DbConnector.dbInstance().getConn();
-    }
-
+    private static TraficFineDAO instance = null ;
     private final Connection conn;
     private final String insertSQL = "INSERT INTO multas (descripcion, fecha, importe, idpolicia, nifinfractor, idtipo)  VALUES (?,?,?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from multas";
     private final String obtainOneByIdSQL = "SELECT * from multas  WHERE idPolicia = ? ";
     private final String updateOneByIdSQL = "UPDATE multas SET descripcion = ?, fecha = ?, importe = ?, idpolicia = ?, nifinfractor = ?, idtipo = ?  WHERE idPolicia = ?";
     private final String deleteOneByIdSQL = "DELETE * from multas  WHERE id = ? ";
+
+    public TraficFineDAO() throws SQLException {
+        this.conn =  DbConnector.dbInstance().getConn();
+    }
+
+    public static TraficFineDAO instanceOf() throws SQLException {
+        if(instance == null ){
+            instance = new TraficFineDAO();
+        }
+        return instance;
+    }
 
     @Override
     public boolean insert(TraficFine traficFine) throws SQLException {

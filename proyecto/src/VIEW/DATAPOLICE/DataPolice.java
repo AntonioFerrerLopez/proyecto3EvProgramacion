@@ -47,7 +47,7 @@ public class DataPolice {
 
     private void sendListToDAO() {
         try {
-            PoliceDAO policeSql = new PoliceDAO();
+            PoliceDAO policeSql = PoliceDAO.instanceOf();
             policesNotInserted = policeSql.insertFromList(policesOnFile);
             compareListAndInform();
         } catch (SQLException sqlError) {

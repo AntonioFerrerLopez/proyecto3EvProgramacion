@@ -8,10 +8,7 @@ import java.util.List;
 
 public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> {
 
-    public PoliceRelatedTraficFineDAO() throws SQLException {
-        this.conn =  DbConnector.dbInstance().getConn();
-    }
-
+    private static PoliceRelatedTraficFineDAO instance = null ;
     private final Connection conn;
     private final String insertSQL = "INSERT INTO multastipo (descripcion, importe, tipo, carnetpuntos)  VALUES (?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from multastipo";
@@ -19,6 +16,16 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     private final String updateOneByIdSQL = "UPDATE multastipo SET descripcion = ?, importe = ?, tipo = ?,  carnetpuntos= ? WHERE id = ?";
     private final String deleteOneByIdSQL = "DELETE * from multastipo  WHERE id = ? ";
 
+    public PoliceRelatedTraficFineDAO() throws SQLException {
+        this.conn =  DbConnector.dbInstance().getConn();
+    }
+
+    public static PoliceRelatedTraficFineDAO instanceOf() throws SQLException {
+        if(instance == null ){
+            instance = new PoliceRelatedTraficFineDAO();
+        }
+        return instance;
+    }
 
     @Override
     public boolean insert(PoliceRelatedTraficFine polRelFine) throws SQLException {
