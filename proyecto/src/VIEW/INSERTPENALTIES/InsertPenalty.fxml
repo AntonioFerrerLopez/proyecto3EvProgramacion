@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
@@ -136,22 +137,32 @@
       </HBox>
       <AnchorPane fx:id="anchorPenalty" layoutX="356.0" layoutY="53.0" prefHeight="526.0" prefWidth="440.0" style="-fx-background-color: WHITE; -fx-border-color: red;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="133.0" layoutX="12.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="14.0" prefHeight="26.0" prefWidth="226.0" text="BOLETIN DE MULTA" textAlignment="CENTER">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="133.0" layoutX="12.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="3.0" prefHeight="26.0" prefWidth="226.0" text="BOLETIN DE MULTA" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="22.0" />
                </font>
             </Label>
-            <VBox layoutX="8.0" layoutY="57.0" prefHeight="153.0" prefWidth="426.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0">
+            <VBox layoutX="10.0" layoutY="45.0" prefHeight="172.0" prefWidth="418.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="13.0">
                <children>
                   <HBox prefHeight="45.0" prefWidth="390.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="196.0" text="Fecha de la infraccion:" textAlignment="CENTER">
+                           <font>
+                              <Font name="Dank Mono Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXDatePicker defaultColor="#00408f" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="175.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="402.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="149.0" text="Nombre Infractor:" textAlignment="CENTER">
                            <font>
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
                         </Label>
-                        <JFXTextField editable="false" prefHeight="26.0" prefWidth="270.0" />
+                        <JFXTextField prefHeight="26.0" prefWidth="270.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" top="5.0" />
@@ -168,30 +179,30 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="53.0" prefWidth="428.0">
                      <children>
-                        <JFXTextField alignment="CENTER" editable="false" prefHeight="26.0" prefWidth="418.0" />
+                        <JFXTextField alignment="CENTER" prefHeight="26.0" prefWidth="418.0" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Spinner layoutX="21.0" layoutY="292.0" prefHeight="26.0" prefWidth="175.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="226.0" prefHeight="26.0" prefWidth="216.0" text="Calculo cuantia" textAlignment="CENTER">
+            <Spinner layoutX="21.0" layoutY="305.0" prefHeight="26.0" prefWidth="175.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="239.0" prefHeight="26.0" prefWidth="216.0" text="Calculo cuantia" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="19.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="270.0" prefHeight="18.0" prefWidth="165.0" text="Seleccione la cuantia" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="283.0" prefHeight="18.0" prefWidth="165.0" text="Seleccione la cuantia" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="14.0" />
                </font>
             </Label>
-            <JFXCheckBox layoutX="214.0" layoutY="296.0" prefHeight="18.0" prefWidth="208.0" text="Aplicar Descuento de 20%" />
+            <JFXCheckBox layoutX="214.0" layoutY="309.0" prefHeight="18.0" prefWidth="208.0" text="Aplicar Descuento de 20%" />
             <VBox alignment="CENTER_RIGHT" layoutX="225.0" layoutY="440.0" prefHeight="72.0" prefWidth="196.0" spacing="10.0">
                <children>
                   <JFXButton style="-fx-border-color: blue;" text="ACEPTAR Y REGISTRAR" />
                   <JFXButton style="-fx-border-color: orange;" text="Limpiar formulario" />
                </children>
             </VBox>
-            <HBox layoutX="48.0" layoutY="380.0" prefHeight="36.0" prefWidth="374.0">
+            <HBox layoutX="48.0" layoutY="385.0" prefHeight="36.0" prefWidth="374.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="208.0" text="Total a abonar:" textAlignment="CENTER">
                      <font>
