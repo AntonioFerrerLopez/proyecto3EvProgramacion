@@ -61,8 +61,8 @@ public class InsertTraficFine implements Initializable {
 
 
     private List<Police> policesList;
-    ObservableList<Police> observablePolicesList;
-    Police policeSelected;
+    private  ObservableList<Police> observablePolicesList;
+    private  Police policeSelected;
     private List<TraficFineTypes> traficFineTypesList;
     private Map<String,Double> fineTypesMap = new HashMap();
     private Double priceBase = 0.0 ;

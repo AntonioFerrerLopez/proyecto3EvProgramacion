@@ -1,6 +1,6 @@
 package MODEL;
 
-public class Police {
+public class Police implements Comparable<Police> {
     private Long id ;
     private String name;
     private String policePlateNumber ;
@@ -78,5 +78,10 @@ public class Police {
                 ", department='" + department + '\'' +
                 ", photoLink='" + photoLink + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Police nextPolice) {
+        return this.getName().compareTo(nextPolice.getName());
     }
 }
