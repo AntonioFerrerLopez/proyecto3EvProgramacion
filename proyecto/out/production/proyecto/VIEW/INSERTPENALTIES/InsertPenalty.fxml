@@ -52,9 +52,9 @@
             <FontAwesomeIconView fill="RED" glyphName="ANGLE_DOUBLE_LEFT" size="20" />
          </graphic>
       </JFXButton>
-      <AnchorPane fx:id="anchorPolice" layoutX="7.0" layoutY="55.0" prefHeight="566.0" prefWidth="336.0" style="-fx-background-color: lightwhiteBlue; -fx-border-color: lightGrey;">
+      <AnchorPane fx:id="anchorPolice" layoutX="7.0" layoutY="55.0" prefHeight="566.0" prefWidth="336.0" style="-fx-border-color: lightGrey;">
          <children>
-            <AnchorPane fx:id="anchorPoliceCard" layoutX="20.0" layoutY="287.0" prefHeight="236.0" prefWidth="304.0" style="-fx-border-color: blue; -fx-background-color: LIGHTGREY;">
+            <AnchorPane fx:id="anchorPoliceCard" layoutX="20.0" layoutY="287.0" prefHeight="236.0" prefWidth="304.0" style="-fx-border-color: blue;">
                <children>
                   <ImageView fx:id="imgPolice" fitHeight="69.0" fitWidth="63.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -147,13 +147,14 @@
       </HBox>
       <AnchorPane fx:id="anchorPenalty" layoutX="356.0" layoutY="53.0" prefHeight="526.0" prefWidth="440.0" style="-fx-background-color: WHITE; -fx-border-color: red;">
          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="63.0" layoutX="11.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="133.0" layoutX="11.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="3.0" prefHeight="26.0" prefWidth="226.0" text="BOLETIN DE MULTA" textAlignment="CENTER">
                <font>
                   <Font name="Dank Mono Regular" size="22.0" />
                </font>
             </Label>
-            <VBox layoutX="10.0" layoutY="45.0" prefHeight="172.0" prefWidth="418.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="13.0">
+            <VBox layoutX="11.0" layoutY="45.0" prefHeight="212.0" prefWidth="416.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="14.0">
                <children>
                   <HBox prefHeight="45.0" prefWidth="390.0">
                      <children>
@@ -162,7 +163,7 @@
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
                         </Label>
-                        <JFXDatePicker defaultColor="#00408f" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="175.0" />
+                        <JFXDatePicker fx:id="dateChooser" defaultColor="#076ec3" editable="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="175.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="42.0" prefWidth="402.0">
@@ -172,11 +173,21 @@
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
                         </Label>
-                        <JFXTextField prefHeight="26.0" prefWidth="270.0" />
+                        <JFXTextField fx:id="infractorsName" prefHeight="26.0" prefWidth="270.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" top="5.0" />
                      </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="42.0" prefWidth="402.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="148.0" text="NIF infractor:" textAlignment="CENTER">
+                           <font>
+                              <Font name="Dank Mono Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="infractorsNif" prefHeight="26.0" prefWidth="270.0" />
+                     </children>
                   </HBox>
                   <HBox prefHeight="22.0" prefWidth="428.0">
                      <children>
@@ -184,12 +195,15 @@
                            <font>
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
                         </Label>
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="416.0">
                      <children>
-                        <JFXTextField alignment="CENTER" prefHeight="26.0" prefWidth="418.0" />
+                        <JFXTextField fx:id="infractionDescription" alignment="CENTER" prefHeight="26.0" prefWidth="418.0" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="416.0">
@@ -199,7 +213,7 @@
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets top="5.0" />
                            </HBox.margin>
                         </Label>
                         <JFXComboBox fx:id="cmbTypeOfPenalty" onAction="#typeOfFineSelected" prefHeight="26.0" prefWidth="237.0" />

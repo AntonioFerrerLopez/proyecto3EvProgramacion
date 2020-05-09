@@ -37,11 +37,10 @@ public class TraficFineDAO implements DAO<TraficFine> {
         statement.setString(1, traficFine.getDescription());
         statement.setDate(2, traficFine.getDateToDb());
         statement.setDouble(3, traficFine.getAmmount());
-        statement.setInt(4, traficFine.getIdPolice());
+        statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifOffender());
-        statement.setInt(6, traficFine.getIdtypeOfFine());
+        statement.setLong(6, traficFine.getIdtypeOfFine());
         isInserted = statement.execute();
-        DbConnector.dbInstance().closeConnection();
         return isInserted;
     }
 
@@ -56,7 +55,6 @@ public class TraficFineDAO implements DAO<TraficFine> {
         List<TraficFine> policeList;
         Statement obtainAllStm = conn.createStatement();
         policeList = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
-        DbConnector.dbInstance().closeConnection();
         return policeList;
     }
 
@@ -67,7 +65,6 @@ public class TraficFineDAO implements DAO<TraficFine> {
         PreparedStatement obtainOnePs = conn.prepareStatement(obtainOneByIdSQL);
         obtainOnePs.setLong(1, id);
         traficFine = formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
-        DbConnector.dbInstance().closeConnection();
         return traficFine;
     }
 
@@ -78,11 +75,10 @@ public class TraficFineDAO implements DAO<TraficFine> {
         statement.setString(1, traficFine.getDescription());
         statement.setDate(2, traficFine.getDateToDb());
         statement.setDouble(3, traficFine.getAmmount());
-        statement.setInt(4, traficFine.getIdPolice());
+        statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifOffender());
-        statement.setInt(6, traficFine.getIdtypeOfFine());
+        statement.setLong(6, traficFine.getIdtypeOfFine());
         isUpdated = statement.execute();
-        DbConnector.dbInstance().closeConnection();
         return isUpdated;
     }
 
@@ -92,7 +88,6 @@ public class TraficFineDAO implements DAO<TraficFine> {
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
         isDeleted = deletePs.execute();
-        DbConnector.dbInstance().closeConnection();
         return isDeleted;
     }
     private List<TraficFine> formatToObject(ResultSet resultFromDb) throws SQLException {
@@ -107,9 +102,9 @@ public class TraficFineDAO implements DAO<TraficFine> {
                     resultFromDb.getString("descripcion"),
                     dateFromDbFormatted ,
                     resultFromDb.getDouble("importe"),
-                    resultFromDb.getInt("idpolicia"),
+                    resultFromDb.getLong("idpolicia"),
                     resultFromDb.getString("nifinfractor"),
-                    resultFromDb.getInt("idtipo") );
+                    resultFromDb.getLong("idtipo") );
             finesFromDb.add(police);
         }
         return finesFromDb ;

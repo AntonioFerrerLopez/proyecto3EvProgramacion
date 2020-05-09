@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PoliceDAO implements DAO<Police>{
     private static PoliceDAO instance = null ;
-    private final Connection conn;
+    private Connection conn;
     private final String insertSQL = "INSERT INTO policia (nombre, numplaca, edad, departamento, foto)  VALUES (?,?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from policia";
     private final String obtainOneByIdSQL = "SELECT * from policia  WHERE idPolicia = ? ";
@@ -59,7 +59,6 @@ public class PoliceDAO implements DAO<Police>{
         List<Police> policeList;
         Statement obtainAllStm = conn.createStatement();
         policeList = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
-        DbConnector.dbInstance().closeConnection();
         return policeList;
     }
 
@@ -70,7 +69,6 @@ public class PoliceDAO implements DAO<Police>{
         PreparedStatement obtainOnePs = conn.prepareStatement(obtainOneByIdSQL);
         obtainOnePs.setLong(1, id);
         policeFromDb = formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
-        DbConnector.dbInstance().closeConnection();
         return policeFromDb;
     }
 
@@ -85,7 +83,6 @@ public class PoliceDAO implements DAO<Police>{
         statement.setString(5, police.getPhotoLink());
         statement.setLong(6, id);
         isUpdated = statement.execute();
-        DbConnector.dbInstance().closeConnection();
         return isUpdated;
     }
 
@@ -95,7 +92,6 @@ public class PoliceDAO implements DAO<Police>{
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
         isDeleted = deletePs.execute();
-        DbConnector.dbInstance().closeConnection();
         return isDeleted;
     }
 

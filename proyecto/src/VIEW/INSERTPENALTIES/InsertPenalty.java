@@ -2,13 +2,12 @@ package VIEW.INSERTPENALTIES;
 
 import DATA.DAO.PoliceDAO;
 import DATA.DAO.PoliceRelatedTraficFineDAO;
+import DATA.DAO.TraficFineDAO;
 import MODEL.Police;
 import MODEL.PoliceRelatedTraficFine;
+import MODEL.TraficFine;
 import VIEW.TOOLS.Alerts;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,11 +20,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,8 +52,15 @@ public class InsertPenalty implements Initializable {
     public Spinner<Integer> priceSelector;
     public JFXCheckBox chDiscount;
     public JFXComboBox<String> cmbTypeOfPenalty;
+    public JFXDatePicker dateChooser;
+    public JFXTextField infractorsName;
+    public JFXTextField infractionDescription;
+    public JFXTextField infractorsNif;
+    public AnchorPane anchorPolice;
+
 
     private List<Police> policesList;
+    Police policeSelected;
     private List<PoliceRelatedTraficFine> traficFineTypesList;
     private Map<String,Double> fineTypesMap = new HashMap();
     private Double priceBase = 0.0 ;
@@ -81,6 +90,7 @@ public class InsertPenalty implements Initializable {
         priceBase = priceSelector.getValue().doubleValue();
         totalPriceFine = priceBase;
         updateTotalPenaliy(totalPriceFine);
+
     }
 
     private boolean obtainListOfPolicesAndTraficFineTypes() {
@@ -117,6 +127,7 @@ public class InsertPenalty implements Initializable {
             fineTypesMap.put(trafilFineType.getDescription() , trafilFineType.getAmmount());
         }
     }
+
     private Double getfineTypeAmmount() {
         String valueSelected = cmbTypeOfPenalty.getSelectionModel().getSelectedItem();
         return fineTypesMap.get(valueSelected);
@@ -137,27 +148,45 @@ public class InsertPenalty implements Initializable {
         if(!anchorPenalty.isVisible()){
             anchorPenalty.setVisible(true);
         }
-        Police policeSelected = this.tvPoliceSelector.getSelectionModel().getSelectedItem();
+        policeSelected = this.tvPoliceSelector.getSelectionModel().getSelectedItem();
         fillPoliceCard(policeSelected);
+    }
+
+    private void fillPoliceCard(Police policeSelected) {
+        File imgPolice;
+        lblPoliceName.setText(policeSelected.getName());
+        lblPolicePlate.setText(policeSelected.getPolicePlateNumber());
+        lblPoliceDepartment.setText(policeSelected.getDepartment());
+        if(policeSelected.getPhotoLink() == null || policeSelected.getPhotoLink().equals("NULL")){
+            imgPolice = new File( POLICE_IMAGES_ROUTE + NO_IMAGE_POLICE + TYPE_JPG);
+        }else{
+            imgPolice = new File( POLICE_IMAGES_ROUTE + policeSelected.getPhotoLink() + TYPE_JPG);
+        }
+        try{
+            InputStream imgStream = new FileInputStream(imgPolice);
+            this.imgPolice.setImage(new Image(imgStream));
+        } catch (Exception e) {
+            Alerts.instanceOf().generateError("Fallo al cargar la imagen del policia");
+        }
     }
 
     public void typeOfFineSelected(ActionEvent actionEvent) {
        priceBase =  getfineTypeAmmount();
        updateTotalPenaliy(priceBase);
-       checkCHState();
+       checkifDiscountState();
     }
 
     public void priceChangedClick(MouseEvent mouseEvent) {
         priceBase = priceSelector.getValue().doubleValue();
         updateTotalPenaliy(priceBase);
-        checkCHState();
+        checkifDiscountState();
     }
 
     public void discountChanged(ActionEvent actionEvent) {
-        checkCHState();
+        checkifDiscountState();
     }
 
-    private void checkCHState() {
+    private void checkifDiscountState() {
         if(chDiscount.isSelected()){
             totalPriceFine = priceBase-((priceBase * DISCOUNT_PERCENTAGE)/100);
             updateTotalPenaliy(totalPriceFine);
@@ -170,33 +199,46 @@ public class InsertPenalty implements Initializable {
         totalPenalty.setText(priceBase + EURO_SYMBOL);
     }
 
-    private void calculateTotalFinePrice() {
+    public void registerPenaltyOnDb(ActionEvent actionEvent) {
+        if(validateAllFields()){
+            System.out.println("VALIDADO");
+            try {
+                TraficFineDAO.instanceOf().insert(generateTraficFineObject());
+                Alerts.instanceOf().generateConfirmation("MULTA REGISTRADA EN SISTEMA");
+                cleanAll(actionEvent);
+            } catch (SQLException errorSql) {
+                Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode() , errorSql.getMessage());
+            }
+
+        }else{
+            Alerts.instanceOf().generateError("Fallo al registrar la multa");
+            cleanAll(actionEvent);
+        }
     }
 
-    public void registerPenaltyOnDb(ActionEvent actionEvent) {
-        //COMPROBAR TODOS LOS CAMPOS
-        //ENVIAR A BBDD SI ESTAN OK
+    private boolean validateAllFields() {
+        return dateChooser.getValue() != null &&
+                !infractorsName.getText().equals("") &&
+                !infractionDescription.getText().equals("") &&
+                !infractorsNif.getText().equals("");
+    }
+
+    private TraficFine generateTraficFineObject() {
+        LocalDateTime localDateFine = dateChooser.getValue().atTime(LocalTime.now());
+        return new TraficFine(
+                infractionDescription.getText(),
+                localDateFine,
+                totalPriceFine,
+                policeSelected.getId(),
+                infractorsNif.getText(),
+                policeSelected.getId());
     }
 
     public void cleanAll(ActionEvent actionEvent) {
-    }
-
-    private void fillPoliceCard(Police policeSelected) {
-        File imgPolice;
-        lblPoliceName.setText(policeSelected.getName());
-        lblPolicePlate.setText(policeSelected.getPolicePlateNumber());
-        lblPoliceDepartment.setText(policeSelected.getDepartment());
-        if(policeSelected.getPhotoLink() == null || policeSelected.getPhotoLink().equals("NULL")){
-           imgPolice = new File( POLICE_IMAGES_ROUTE + NO_IMAGE_POLICE + TYPE_JPG);
-        }else{
-           imgPolice = new File( POLICE_IMAGES_ROUTE + policeSelected.getPhotoLink() + TYPE_JPG);
-        }
-       try{
-           InputStream imgStream = new FileInputStream(imgPolice);
-           this.imgPolice.setImage(new Image(imgStream));
-       } catch (Exception e) {
-            Alerts.instanceOf().generateError("Fallo al cargar la imagen del policia");
-       }
+            dateChooser.setValue(null);
+            infractorsName.setText("");
+            infractionDescription.setText("");
+            infractorsNif.setText("");
     }
 
     public void btnClose(ActionEvent actionEvent) {

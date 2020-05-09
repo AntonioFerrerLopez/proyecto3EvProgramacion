@@ -1,5 +1,7 @@
 package MODEL;
 
+import com.jfoenix.controls.JFXTextField;
+
 import java.sql.Date;
 import java.time.LocalDateTime;
 
@@ -8,11 +10,11 @@ public class TraficFine {
     private String description ;
     private LocalDateTime date;
     private Double ammount ;
-    private Integer idPolice ;
+    private Long idPolice ;
     private String nifOffender ;
-    private Integer idtypeOfFine;
+    private Long idtypeOfFine;
 
-    public TraficFine(Long id, String description, LocalDateTime date, Double ammount, Integer idPolice, String nifOffender, Integer idtypeOfFine) {
+    public TraficFine(Long id, String description, LocalDateTime date, Double ammount, Long idPolice, String nifOffender, Long idtypeOfFine) {
         this.id = id;
         this.description = description;
         this.date = date;
@@ -21,6 +23,16 @@ public class TraficFine {
         this.nifOffender = nifOffender;
         this.idtypeOfFine = idtypeOfFine;
     }
+
+    public TraficFine(String description, LocalDateTime date, Double ammount, Long idPolice, String nifOffender, Long idtypeOfFine) {
+        this.description = description;
+        this.date = date;
+        this.ammount = ammount;
+        this.idPolice = idPolice;
+        this.nifOffender = nifOffender;
+        this.idtypeOfFine = idtypeOfFine;
+    }
+
 
     public Long getId() {
         return id;
@@ -59,11 +71,11 @@ public class TraficFine {
         this.ammount = ammount;
     }
 
-    public Integer getIdPolice() {
+    public Long getIdPolice() {
         return idPolice;
     }
 
-    public void setIdPolice(Integer idPolice) {
+    public void setIdPolice(Long idPolice) {
         this.idPolice = idPolice;
     }
 
@@ -75,11 +87,11 @@ public class TraficFine {
         this.nifOffender = nifOffender;
     }
 
-    public Integer getIdtypeOfFine() {
+    public Long getIdtypeOfFine() {
         return idtypeOfFine;
     }
 
-    public void setIdtypeOfFine(Integer idtypeOfFine) {
+    public void setIdtypeOfFine(Long idtypeOfFine) {
         this.idtypeOfFine = idtypeOfFine;
     }
 

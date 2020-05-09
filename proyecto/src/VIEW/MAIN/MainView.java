@@ -1,5 +1,6 @@
 package VIEW.MAIN;
 
+import DATA.DATABASE.DbConnector;
 import VIEW.TOOLS.Alerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -40,9 +42,7 @@ public class MainView implements Initializable{
     }
 
     public void endProgram(ActionEvent actionEvent) {
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        finaliceProgram();
     }
 
     private void openModalWidow(String fxmlResource , String msjError ) {
@@ -56,10 +56,18 @@ public class MainView implements Initializable{
             viewStage.setScene(viewScene);
             viewStage.showAndWait();
         } catch (IOException e) {
-            Alerts.instanceOf().generateError(msjError + e.getMessage());
             e.printStackTrace();
+            Alerts.instanceOf().generateError(msjError + e.getMessage());
+            finaliceProgram();
         }
     }
 
+    private void finaliceProgram() {
+
+
+
+        Stage stage = (Stage) lbltoday.getScene().getWindow();
+        stage.close();
+    }
 
 }
