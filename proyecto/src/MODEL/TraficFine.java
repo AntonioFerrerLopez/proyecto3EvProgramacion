@@ -50,9 +50,8 @@ public class TraficFine {
         this.description = description;
     }
 
-    public Date getDateToDb() {
-        LocalDateTime dateTime = this.date;
-        return Date.valueOf(dateTime.toLocalDate());
+    public LocalDateTime getDateToDb() {
+        return this.date;
     }
 
     public LocalDateTime getDate() {

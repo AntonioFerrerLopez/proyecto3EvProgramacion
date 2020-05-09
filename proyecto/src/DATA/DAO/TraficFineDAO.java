@@ -34,7 +34,7 @@ public class TraficFineDAO implements DAO<TraficFine> {
         boolean isInserted;
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, traficFine.getDescription());
-        statement.setDate(2, traficFine.getDateToDb());
+        statement.setTimestamp(2, Timestamp.valueOf(traficFine.getDate()));
         statement.setDouble(3, traficFine.getAmmount());
         statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifInfractor());
@@ -72,7 +72,7 @@ public class TraficFineDAO implements DAO<TraficFine> {
         boolean isUpdated;
         PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, traficFine.getDescription());
-        statement.setDate(2, traficFine.getDateToDb());
+        statement.setTimestamp(2, Timestamp.valueOf(traficFine.getDate()));
         statement.setDouble(3, traficFine.getAmmount());
         statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifInfractor());
@@ -91,20 +91,19 @@ public class TraficFineDAO implements DAO<TraficFine> {
     }
     private List<TraficFine> formatToObject(ResultSet resultFromDb) throws SQLException {
         List<TraficFine> finesFromDb = new ArrayList<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateFromDbFormatted = null;
         while (resultFromDb.next()){
-            dateFromDbFormatted = LocalDateTime.parse(resultFromDb.getString("fecha"), formatter);
+            System.out.println(resultFromDb.getString("fecha"));
+
             resultFromDb.getString("fecha");
-            TraficFine police = new  TraficFine(
+            TraficFine traficFine = new  TraficFine(
                     resultFromDb.getLong("id"),
                     resultFromDb.getString("descripcion"),
-                    dateFromDbFormatted ,
+                    resultFromDb.getTimestamp("fecha").toLocalDateTime() ,
                     resultFromDb.getDouble("importe"),
                     resultFromDb.getLong("idpolicia"),
                     resultFromDb.getString("nifinfractor"),
                     resultFromDb.getLong("idtipo") );
-            finesFromDb.add(police);
+            finesFromDb.add(traficFine);
         }
         return finesFromDb ;
     }
