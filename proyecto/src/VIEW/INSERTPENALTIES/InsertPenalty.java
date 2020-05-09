@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -58,15 +57,18 @@ public class InsertPenalty implements Initializable {
     public JFXTextField infractionDescription;
     public JFXTextField infractorsNif;
     public AnchorPane anchorPolice;
+    public JFXComboBox cmDepartmentFilter;
 
 
     private List<Police> policesList;
+    ObservableList<Police> observablePolicesList;
     Police policeSelected;
     private List<PoliceRelatedTraficFine> traficFineTypesList;
     private Map<String,Double> fineTypesMap = new HashMap();
     private Double priceBase = 0.0 ;
     private Double totalPriceFine ;
 
+    private static final String NO_FILTER = "Todos";
     private final String POLICE_IMAGES_ROUTE = "src/resources/Images/policeImages/";
     private final String TYPE_JPG = ".jpg";
     private final String NO_IMAGE_POLICE = "dgpNoImage";
@@ -77,7 +79,7 @@ public class InsertPenalty implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         if (obtainListOfPolicesAndTraficFineTypes()) {
             setupTableList();
-            setupComboTraficFineTypes();
+            setupCombos();
             setupFineTypesMap();
             priceBase = getfineTypeAmmount();
         } else {
@@ -91,7 +93,6 @@ public class InsertPenalty implements Initializable {
         priceBase = priceSelector.getValue().doubleValue();
         totalPriceFine = priceBase;
         updateTotalPenaliy(totalPriceFine);
-
     }
 
     private boolean obtainListOfPolicesAndTraficFineTypes() {
@@ -106,21 +107,53 @@ public class InsertPenalty implements Initializable {
         return listObtained;
     }
 
-    private void setupTableList() {
-        ObservableList<Police> observablePolicesList = FXCollections.observableArrayList();
-        numPlateCol.setCellValueFactory(new PropertyValueFactory("policePlateNumber"));
-        nameCol.setCellValueFactory(new PropertyValueFactory("name"));
-        observablePolicesList.addAll(policesList);
-        tvPoliceSelector.setItems(observablePolicesList);
-    }
-
-    private void setupComboTraficFineTypes() {
+    private void setupCombos() {
         ObservableList<String> observableTraficFineTypesList = FXCollections.observableArrayList();
+        ObservableList<String> observableDepartments = FXCollections.observableArrayList();
+        observableDepartments.add(NO_FILTER);
         for(PoliceRelatedTraficFine traficFineType : traficFineTypesList){
             observableTraficFineTypesList.add(traficFineType.getDescription());
         }
+        for(Police policeOnList : policesList){
+            if(!observableDepartments.contains(policeOnList.getDepartment())){
+                observableDepartments.add(policeOnList.getDepartment());
+            }
+        }
         cmbTypeOfPenalty.setItems(observableTraficFineTypesList);
         cmbTypeOfPenalty.getSelectionModel().selectFirst();
+        cmDepartmentFilter.setItems(observableDepartments);
+        cmDepartmentFilter.getSelectionModel().selectFirst();
+    }
+    private void setupTableList() {
+        observablePolicesList = FXCollections.observableArrayList();
+        numPlateCol.setCellValueFactory(new PropertyValueFactory("policePlateNumber"));
+        nameCol.setCellValueFactory(new PropertyValueFactory("name"));
+        chargeTableListOfPolices();
+    }
+
+    public void departmentFilterChanged(ActionEvent actionEvent) {
+        String departmentSelected = cmDepartmentFilter.getSelectionModel().getSelectedItem().toString();
+        try {
+            if(departmentSelected.equals(NO_FILTER)){
+                    policesList = PoliceDAO.instanceOf().obtainAll();
+                    chargeTableListOfPolices();
+            }else {
+                policesList = PoliceDAO.instanceOf().obtainListByDepartment(departmentSelected);
+                chargeTableListOfPolices();
+            }
+        } catch (SQLException errorSql) {
+            Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode(), errorSql.getMessage());
+        }
+
+    }
+
+
+    private void chargeTableListOfPolices() {
+        observablePolicesList.clear();
+        observablePolicesList.setAll(policesList);
+        tvPoliceSelector.setItems(observablePolicesList);
+        tvPoliceSelector.refresh();
+
     }
 
     private void setupFineTypesMap() {
@@ -257,4 +290,5 @@ public class InsertPenalty implements Initializable {
         }
 
     }
+
 }

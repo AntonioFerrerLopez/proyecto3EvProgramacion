@@ -13,6 +13,7 @@ public class PoliceDAO implements DAO<Police>{
     private final String insertSQL = "INSERT INTO policia (nombre, numplaca, edad, departamento, foto)  VALUES (?,?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from policia";
     private final String obtainOneByIdSQL = "SELECT * from policia  WHERE idPolicia = ? ";
+    private final String obtainOneByDepartmentSQL = "SELECT * from policia  WHERE departamento = ? ";
     private final String updateOneByIdSQL = "UPDATE policia SET nombre = ?, numplaca = ?, edad = ?, departamento = ?, foto = ? WHERE idPolicia = ?";
     private final String deleteOneByIdSQL = "DELETE * from policia  WHERE idPolicia = ? ";
 
@@ -58,6 +59,14 @@ public class PoliceDAO implements DAO<Police>{
         List<Police> policeList;
         Statement obtainAllStm = conn.createStatement();
         policeList = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
+        return policeList;
+    }
+
+    public List<Police> obtainListByDepartment(String department) throws SQLException {
+        List<Police> policeList;
+        PreparedStatement obtainListFiltered = conn.prepareStatement(obtainOneByDepartmentSQL);
+        obtainListFiltered.setString(1, department);
+        policeList = formatToObject(obtainListFiltered.executeQuery());
         return policeList;
     }
 
@@ -108,5 +117,6 @@ public class PoliceDAO implements DAO<Police>{
         }
          return policeListFromDb ;
     }
+
 
 }
