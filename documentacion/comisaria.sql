@@ -36,7 +36,7 @@ UNLOCK TABLES;
 CREATE TABLE `policia` (
   `idPolicia` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  `numplaca` varchar(45) NOT NULL,
+  `numplaca` varchar(45) NOT NULL UNIQUE,
   `edad` int(11) DEFAULT NULL,
   `departamento` varchar(45) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
