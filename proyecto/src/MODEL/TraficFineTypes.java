@@ -1,6 +1,6 @@
 package MODEL;
 
-public class PoliceRelatedTraficFine {
+public class TraficFineTypes {
 
     private Long id;
     private String description ;
@@ -8,7 +8,7 @@ public class PoliceRelatedTraficFine {
     private String fineType;
     private Integer drivingCardPoints;
 
-    public PoliceRelatedTraficFine(Long id, String description, Double ammount, String fineType, Integer drivingCardPoints) {
+    public TraficFineTypes(Long id, String description, Double ammount, String fineType, Integer drivingCardPoints) {
         this.id = id;
         this.description = description;
         this.ammount = ammount;

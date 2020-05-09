@@ -1,16 +1,15 @@
 package DATA.DAO;
 
 import DATA.DATABASE.DbConnector;
-import MODEL.PoliceRelatedTraficFine;
-import MODEL.TraficFine;
+import MODEL.TraficFineTypes;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> {
+public class TraficFineTypesDAO implements DAO<TraficFineTypes> {
 
-    private static PoliceRelatedTraficFineDAO instance = null ;
+    private static TraficFineTypesDAO instance = null ;
     private final Connection conn;
     private final String insertSQL = "INSERT INTO multastipo (descripcion, importe, tipo, carnetpuntos)  VALUES (?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from multastipo";
@@ -19,19 +18,19 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     private final String updateOneByIdSQL = "UPDATE multastipo SET descripcion = ?, importe = ?, tipo = ?,  carnetpuntos= ? WHERE id = ?";
     private final String deleteOneByIdSQL = "DELETE * from multastipo  WHERE id = ? ";
 
-    public PoliceRelatedTraficFineDAO() throws SQLException {
+    public TraficFineTypesDAO() throws SQLException {
         this.conn =  DbConnector.dbInstance().getConn();
     }
 
-    public static PoliceRelatedTraficFineDAO instanceOf() throws SQLException {
+    public static TraficFineTypesDAO instanceOf() throws SQLException {
         if(instance == null ){
-            instance = new PoliceRelatedTraficFineDAO();
+            instance = new TraficFineTypesDAO();
         }
         return instance;
     }
 
     @Override
-    public boolean insert(PoliceRelatedTraficFine polRelFine) throws SQLException {
+    public boolean insert(TraficFineTypes polRelFine) throws SQLException {
         boolean isInserted;
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, polRelFine.getDescription());
@@ -43,21 +42,21 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     }
 
     @Override
-    public List<PoliceRelatedTraficFine> insertFromList(List<PoliceRelatedTraficFine> goL) {
+    public List<TraficFineTypes> insertFromList(List<TraficFineTypes> goL) {
         return null;
     }
 
 
     @Override
-    public List<PoliceRelatedTraficFine> obtainAll() throws SQLException {
-        List<PoliceRelatedTraficFine> listPolRelFine ;
+    public List<TraficFineTypes> obtainAll() throws SQLException {
+        List<TraficFineTypes> listPolRelFine ;
         Statement obtainAllStm = conn.createStatement();
         listPolRelFine = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
         return listPolRelFine;
     }
 
     @Override
-    public PoliceRelatedTraficFine obtainOneById(Long id) throws SQLException {
+    public TraficFineTypes obtainOneById(Long id) throws SQLException {
         int FIRST_ELEMENT = 0;
         PreparedStatement obtainOnePs = conn.prepareStatement(obtainOneByIdSQL);
         obtainOnePs.setLong(1, id);
@@ -73,7 +72,7 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     }
 
     @Override
-    public boolean updateOneById(Long id, PoliceRelatedTraficFine polRelFine) throws SQLException {
+    public boolean updateOneById(Long id, TraficFineTypes polRelFine) throws SQLException {
         boolean isUpdated;
         PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, polRelFine.getDescription());
@@ -94,10 +93,10 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         return isDeleted;
     }
 
-    private List<PoliceRelatedTraficFine> formatToObject(ResultSet resultFromDb) throws SQLException {
-        List<PoliceRelatedTraficFine> polRelFineFromDb = new ArrayList<>();
+    private List<TraficFineTypes> formatToObject(ResultSet resultFromDb) throws SQLException {
+        List<TraficFineTypes> polRelFineFromDb = new ArrayList<>();
         while (resultFromDb.next()){
-            PoliceRelatedTraficFine policeRelFine = new PoliceRelatedTraficFine(
+            TraficFineTypes policeRelFine = new TraficFineTypes(
                     resultFromDb.getLong("id"),
                     resultFromDb.getString("descripcion"),
                     resultFromDb.getDouble("importe"),

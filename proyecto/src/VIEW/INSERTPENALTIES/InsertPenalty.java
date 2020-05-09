@@ -1,14 +1,13 @@
 package VIEW.INSERTPENALTIES;
 
 import DATA.DAO.PoliceDAO;
-import DATA.DAO.PoliceRelatedTraficFineDAO;
+import DATA.DAO.TraficFineTypesDAO;
 import DATA.DAO.TraficFineDAO;
 import MODEL.Police;
-import MODEL.PoliceRelatedTraficFine;
+import MODEL.TraficFineTypes;
 import MODEL.TraficFine;
 import VIEW.TOOLS.Alerts;
 import com.jfoenix.controls.*;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -64,7 +63,7 @@ public class InsertPenalty implements Initializable {
     private List<Police> policesList;
     ObservableList<Police> observablePolicesList;
     Police policeSelected;
-    private List<PoliceRelatedTraficFine> traficFineTypesList;
+    private List<TraficFineTypes> traficFineTypesList;
     private Map<String,Double> fineTypesMap = new HashMap();
     private Double priceBase = 0.0 ;
     private Double totalPriceFine ;
@@ -100,7 +99,7 @@ public class InsertPenalty implements Initializable {
         boolean listObtained = false;
         try {
             policesList = PoliceDAO.instanceOf().obtainAll();
-            traficFineTypesList = PoliceRelatedTraficFineDAO.instanceOf().obtainAll();
+            traficFineTypesList = TraficFineTypesDAO.instanceOf().obtainAll();
             listObtained = true;
         } catch (SQLException errorSql) {
             Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode(), errorSql.getMessage());
@@ -112,7 +111,7 @@ public class InsertPenalty implements Initializable {
         ObservableList<String> observableTraficFineTypesList = FXCollections.observableArrayList();
         ObservableList<String> observableDepartments = FXCollections.observableArrayList();
         observableDepartments.add(NO_FILTER);
-        for(PoliceRelatedTraficFine traficFineType : traficFineTypesList){
+        for(TraficFineTypes traficFineType : traficFineTypesList){
             observableTraficFineTypesList.add(traficFineType.getDescription());
         }
         for(Police policeOnList : policesList){
@@ -156,7 +155,7 @@ public class InsertPenalty implements Initializable {
     }
 
     private void setupFineTypesMap() {
-        for (PoliceRelatedTraficFine trafilFineType : traficFineTypesList){
+        for (TraficFineTypes trafilFineType : traficFineTypesList){
             fineTypesMap.put(trafilFineType.getDescription() , trafilFineType.getAmmount());
         }
     }
@@ -268,7 +267,7 @@ public class InsertPenalty implements Initializable {
         LocalDateTime localDateFine = dateChooser.getValue().atTime(LocalTime.now());
         try {
             String  typeSelected = cmbTypeOfPenalty.getSelectionModel().getSelectedItem();
-            fineId = PoliceRelatedTraficFineDAO.instanceOf().obtainIdFirterByDescription(typeSelected);
+            fineId = TraficFineTypesDAO.instanceOf().obtainIdFirterByDescription(typeSelected);
             System.out.println(fineId + "ID DE RETORNO");
         } catch (SQLException errorSql) {
             Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode() , errorSql.getMessage());
