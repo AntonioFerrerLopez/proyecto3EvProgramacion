@@ -1,7 +1,6 @@
 package DATA.DAO;
 
 import DATA.DATABASE.DbConnector;
-import MODEL.Police;
 import MODEL.TraficFine;
 
 import java.sql.*;
@@ -38,7 +37,7 @@ public class TraficFineDAO implements DAO<TraficFine> {
         statement.setDate(2, traficFine.getDateToDb());
         statement.setDouble(3, traficFine.getAmmount());
         statement.setLong(4, traficFine.getIdPolice());
-        statement.setString(5, traficFine.getNifOffender());
+        statement.setString(5, traficFine.getNifInfractor());
         statement.setLong(6, traficFine.getIdtypeOfFine());
         isInserted = statement.execute();
         return isInserted;
@@ -76,7 +75,7 @@ public class TraficFineDAO implements DAO<TraficFine> {
         statement.setDate(2, traficFine.getDateToDb());
         statement.setDouble(3, traficFine.getAmmount());
         statement.setLong(4, traficFine.getIdPolice());
-        statement.setString(5, traficFine.getNifOffender());
+        statement.setString(5, traficFine.getNifInfractor());
         statement.setLong(6, traficFine.getIdtypeOfFine());
         isUpdated = statement.execute();
         return isUpdated;

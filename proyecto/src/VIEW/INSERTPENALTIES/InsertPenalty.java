@@ -144,9 +144,7 @@ public class InsertPenalty implements Initializable {
         } catch (SQLException errorSql) {
             Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode(), errorSql.getMessage());
         }
-
     }
-
 
     private void chargeTableListOfPolices() {
         observablePolicesList.clear();
@@ -200,7 +198,13 @@ public class InsertPenalty implements Initializable {
             InputStream imgStream = new FileInputStream(imgPolice);
             this.imgPolice.setImage(new Image(imgStream));
         } catch (Exception e) {
-            Alerts.instanceOf().generateError("Fallo al cargar la imagen del policia");
+            try{
+             imgPolice = new File( POLICE_IMAGES_ROUTE + NO_IMAGE_POLICE + TYPE_JPG);
+             InputStream imgStream = new FileInputStream(imgPolice);
+             this.imgPolice.setImage(new Image(imgStream));
+            }catch (Exception imgError){
+                Alerts.instanceOf().generateError("Fallo al cargar la imagen del policia");
+            }
         }
     }
 
@@ -236,7 +240,6 @@ public class InsertPenalty implements Initializable {
 
     public void registerPenaltyOnDb(ActionEvent actionEvent) {
         if(validateAllFields()){
-            System.out.println("VALIDADO");
             try {
                 TraficFineDAO.instanceOf().insert(generateTraficFineObject());
                 Alerts.instanceOf().generateConfirmation("MULTA REGISTRADA EN SISTEMA");
@@ -246,8 +249,7 @@ public class InsertPenalty implements Initializable {
             }
 
         }else{
-            Alerts.instanceOf().generateError("Fallo al registrar la multa");
-            cleanAll(actionEvent);
+            Alerts.instanceOf().generateError("Fallo al registrar la multa. Revise los campos");
         }
     }
 
@@ -270,7 +272,7 @@ public class InsertPenalty implements Initializable {
     }
 
     public void cleanAll(ActionEvent actionEvent) {
-            dateChooser.setValue(null);
+            dateChooser.setValue(LocalDate.now());
             infractorsName.setText("");
             infractionDescription.setText("");
             infractorsNif.setText("");

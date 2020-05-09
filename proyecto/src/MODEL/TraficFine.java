@@ -11,25 +11,25 @@ public class TraficFine {
     private LocalDateTime date;
     private Double ammount ;
     private Long idPolice ;
-    private String nifOffender ;
+    private String nifInfractor ;
     private Long idtypeOfFine;
 
-    public TraficFine(Long id, String description, LocalDateTime date, Double ammount, Long idPolice, String nifOffender, Long idtypeOfFine) {
+    public TraficFine(Long id, String description, LocalDateTime date, Double ammount, Long idPolice, String nifInfractor, Long idtypeOfFine) {
         this.id = id;
         this.description = description;
         this.date = date;
         this.ammount = ammount;
         this.idPolice = idPolice;
-        this.nifOffender = nifOffender;
+        this.nifInfractor = nifInfractor;
         this.idtypeOfFine = idtypeOfFine;
     }
 
-    public TraficFine(String description, LocalDateTime date, Double ammount, Long idPolice, String nifOffender, Long idtypeOfFine) {
+    public TraficFine(String description, LocalDateTime date, Double ammount, Long idPolice, String nifInfractor, Long idtypeOfFine) {
         this.description = description;
         this.date = date;
         this.ammount = ammount;
         this.idPolice = idPolice;
-        this.nifOffender = nifOffender;
+        this.nifInfractor = nifInfractor;
         this.idtypeOfFine = idtypeOfFine;
     }
 
@@ -79,13 +79,10 @@ public class TraficFine {
         this.idPolice = idPolice;
     }
 
-    public String getNifOffender() {
-        return nifOffender;
+    public String getNifInfractor() {
+        return nifInfractor;
     }
 
-    public void setNifOffender(String nifOffender) {
-        this.nifOffender = nifOffender;
-    }
 
     public Long getIdtypeOfFine() {
         return idtypeOfFine;
@@ -103,7 +100,7 @@ public class TraficFine {
                 ", date=" + date +
                 ", ammount=" + ammount +
                 ", idPolice=" + idPolice +
-                ", nifOffender=" + nifOffender +
+                ", nifInfractor=" + nifInfractor +
                 '}';
     }
 }
