@@ -36,7 +36,6 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
         isInserted = statement.execute();
-        DbConnector.dbInstance().closeConnection();
         return isInserted;
     }
 
@@ -51,7 +50,6 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         List<PoliceRelatedTraficFine> listPolRelFine ;
         Statement obtainAllStm = conn.createStatement();
         listPolRelFine = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
-        DbConnector.dbInstance().closeConnection();
         return listPolRelFine;
     }
 
@@ -62,7 +60,6 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         PreparedStatement obtainOnePs = conn.prepareStatement(obtainOneByIdSQL);
         obtainOnePs.setLong(1, id);
         polRelFine = formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
-        DbConnector.dbInstance().closeConnection();
         return polRelFine;
     }
 
@@ -76,7 +73,6 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         statement.setInt(4, polRelFine.getDrivingCardPoints());
         statement.setLong(5, id);
         isUpdated = statement.execute();
-        DbConnector.dbInstance().closeConnection();
         return isUpdated;
     }
 
@@ -86,7 +82,6 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
         isDeleted = deletePs.execute();
-        DbConnector.dbInstance().closeConnection();
         return isDeleted;
     }
 

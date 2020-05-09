@@ -36,7 +36,6 @@ public class PoliceDAO implements DAO<Police>{
         statement.setString(4, police.getDepartment());
         statement.setString(5, police.getPhotoLink());
         isInserted = statement.execute();
-        DbConnector.dbInstance().closeConnection();
         return isInserted;
     }
 
