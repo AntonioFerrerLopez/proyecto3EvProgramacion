@@ -109,4 +109,5 @@ public class TraficFineDAO implements DAO<TraficFine> {
         return finesFromDb ;
     }
 
+
 }

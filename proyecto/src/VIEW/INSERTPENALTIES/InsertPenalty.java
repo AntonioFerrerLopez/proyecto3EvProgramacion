@@ -8,6 +8,7 @@ import MODEL.PoliceRelatedTraficFine;
 import MODEL.TraficFine;
 import VIEW.TOOLS.Alerts;
 import com.jfoenix.controls.*;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -241,7 +242,9 @@ public class InsertPenalty implements Initializable {
     public void registerPenaltyOnDb(ActionEvent actionEvent) {
         if(validateAllFields()){
             try {
-                TraficFineDAO.instanceOf().insert(generateTraficFineObject());
+               TraficFine trf=  generateTraficFineObject();
+                System.out.println(trf);
+                TraficFineDAO.instanceOf().insert(trf);
                 Alerts.instanceOf().generateConfirmation("MULTA REGISTRADA EN SISTEMA");
                 cleanAll(actionEvent);
             } catch (SQLException errorSql) {
@@ -261,14 +264,23 @@ public class InsertPenalty implements Initializable {
     }
 
     private TraficFine generateTraficFineObject() {
+        Long fineId = null;
         LocalDateTime localDateFine = dateChooser.getValue().atTime(LocalTime.now());
+        try {
+            String  typeSelected = cmbTypeOfPenalty.getSelectionModel().getSelectedItem();
+            fineId = PoliceRelatedTraficFineDAO.instanceOf().obtainIdFirterByDescription(typeSelected);
+            System.out.println(fineId + "ID DE RETORNO");
+        } catch (SQLException errorSql) {
+            Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode() , errorSql.getMessage());
+        }
+
         return new TraficFine(
                 infractionDescription.getText(),
                 localDateFine,
                 totalPriceFine,
                 policeSelected.getId(),
                 infractorsNif.getText(),
-                policeSelected.getId());
+                fineId);
     }
 
     public void cleanAll(ActionEvent actionEvent) {

@@ -2,6 +2,8 @@ package DATA.DAO;
 
 import DATA.DATABASE.DbConnector;
 import MODEL.PoliceRelatedTraficFine;
+import MODEL.TraficFine;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     private final String insertSQL = "INSERT INTO multastipo (descripcion, importe, tipo, carnetpuntos)  VALUES (?,?,?,?)";
     private final String obtainAllSQL = "SELECT * from multastipo";
     private final String obtainOneByIdSQL = "SELECT * from multastipo  WHERE id = ? ";
+    private String obtainIdFilteringByDescription = "SELECT id FROM multastipo WHERE descripcion LIKE ";
     private final String updateOneByIdSQL = "UPDATE multastipo SET descripcion = ?, importe = ?, tipo = ?,  carnetpuntos= ? WHERE id = ?";
     private final String deleteOneByIdSQL = "DELETE * from multastipo  WHERE id = ? ";
 
@@ -56,11 +59,17 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
     @Override
     public PoliceRelatedTraficFine obtainOneById(Long id) throws SQLException {
         int FIRST_ELEMENT = 0;
-        PoliceRelatedTraficFine polRelFine;
         PreparedStatement obtainOnePs = conn.prepareStatement(obtainOneByIdSQL);
         obtainOnePs.setLong(1, id);
-        polRelFine = formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
-        return polRelFine;
+        return formatToObject(obtainOnePs.executeQuery()).get(FIRST_ELEMENT);
+    }
+
+    public Long obtainIdFirterByDescription(String description) throws SQLException {
+        String descriptionForSql = "'" + description + "'";
+        Statement obtainIdByDescStm = conn.createStatement();
+        ResultSet resultQuery = obtainIdByDescStm.executeQuery(obtainIdFilteringByDescription + descriptionForSql);
+        resultQuery.next();
+        return resultQuery.getLong("id");
     }
 
     @Override
@@ -98,5 +107,6 @@ public class PoliceRelatedTraficFineDAO implements DAO<PoliceRelatedTraficFine> 
         }
         return polRelFineFromDb ;
     }
+
 
 }
