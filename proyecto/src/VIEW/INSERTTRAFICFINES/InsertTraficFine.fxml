@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="632.0" prefWidth="805.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.INSERTPENALTIES.InsertPenalty">
+<AnchorPane prefHeight="632.0" prefWidth="805.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.INSERTTRAFICFINES.InsertTraficFine">
    <children>
       <AnchorPane fx:id="AnchorAdvise" layoutX="390.0" layoutY="218.0" prefHeight="226.0" prefWidth="372.0" style="-fx-background-color: white; -fx-border-color: red;">
          <children>

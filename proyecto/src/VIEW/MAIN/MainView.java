@@ -30,11 +30,11 @@ public class MainView implements Initializable{
 
 
     public void openViewInsertPenalty(ActionEvent actionEvent) {
-        openModalWidow("../INSERTPENALTIES/InsertPenalty.fxml", "No se ha podido acceder a La lista de multas");
+        openModalWidow("../INSERTTRAFICFINES/InsertTraficFine.fxml", "No se ha podido acceder a La lista de multas");
     }
 
     public void openViewListOfPenalties(ActionEvent actionEvent) {
-        openModalWidow("../LISTPENALTIES/ListOfPenalties.fxml", "No se ha podido acceder a la Inserción de Multas ");
+        openModalWidow("../LISTTRAFICFINE/ListOfTraficFines.fxml", "No se ha podido acceder a la Inserción de Multas ");
     }
 
     public void openViewDataPolice(ActionEvent actionEvent) {

@@ -1,4 +1,4 @@
-package VIEW.INSERTPENALTIES;
+package VIEW.INSERTTRAFICFINES;
 
 import DATA.DAO.PoliceDAO;
 import DATA.DAO.TraficFineTypesDAO;
@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class InsertPenalty implements Initializable {
+public class InsertTraficFine implements Initializable {
 
     public AnchorPane AnchorAdvise;
     public JFXButton btnClose;
