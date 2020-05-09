@@ -50,7 +50,7 @@ public class InsertPenalty implements Initializable {
     public JFXTextField lblPoliceDepartment;
     public ImageView imgPolice;
     public Label totalPenalty;
-    public Spinner<Integer> priceSelector;
+    public Spinner<Double> priceSelector;
     public JFXCheckBox chDiscount;
     public JFXComboBox<String> cmbTypeOfPenalty;
     public JFXDatePicker dateChooser;
@@ -86,7 +86,7 @@ public class InsertPenalty implements Initializable {
         anchorPoliceCard.setVisible(false);
         anchorPenalty.setVisible(false);
 
-        SpinnerValueFactory.IntegerSpinnerValueFactory setUpSpinner =  new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100000,priceBase.byteValue(),1);
+        SpinnerValueFactory.DoubleSpinnerValueFactory setUpSpinner =  new SpinnerValueFactory.DoubleSpinnerValueFactory(1,100000,priceBase,1);
         priceSelector.setValueFactory(setUpSpinner);
         priceBase = priceSelector.getValue().doubleValue();
         totalPriceFine = priceBase;
@@ -174,6 +174,7 @@ public class InsertPenalty implements Initializable {
     public void typeOfFineSelected(ActionEvent actionEvent) {
        priceBase =  getfineTypeAmmount();
        updateTotalPenaliy(priceBase);
+       priceSelector.getValueFactory().setValue(priceBase);
        checkifDiscountState();
     }
 
