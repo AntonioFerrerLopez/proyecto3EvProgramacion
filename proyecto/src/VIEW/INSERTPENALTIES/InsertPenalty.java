@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -248,4 +249,11 @@ public class InsertPenalty implements Initializable {
     }
 
 
+    public void userSelectsDate(ActionEvent actionEvent) {
+        if (dateChooser.getValue().equals(LocalDate.now().plusDays(1))) {
+            Alerts.instanceOf().generateError("No Puede seleccionar una fecha posterior a la actual");
+           dateChooser.setValue(LocalDate.now());
+        }
+
+    }
 }
