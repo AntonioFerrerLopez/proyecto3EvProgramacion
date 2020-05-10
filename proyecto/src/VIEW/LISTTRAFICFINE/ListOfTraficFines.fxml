@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="1291.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.LISTTRAFICFINE.ListOfTraficFines">
+<AnchorPane prefHeight="533.0" prefWidth="1328.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.LISTTRAFICFINE.ListOfTraficFines">
    <children>
       <HBox layoutX="250.0" layoutY="14.0" prefHeight="44.0" prefWidth="578.0">
          <children>
@@ -58,16 +58,16 @@
             </VBox>
          </children>
       </AnchorPane>
-      <TableView fx:id="tableOfTraficFines" layoutX="250.0" layoutY="64.0" prefHeight="457.0" prefWidth="1036.0">
+      <TableView fx:id="tableOfTraficFines" layoutX="250.0" layoutY="64.0" prefHeight="457.0" prefWidth="1075.0">
         <columns>
-          <TableColumn fx:id="colDate" editable="false" prefWidth="102.0" sortType="DESCENDING" text="FECHA" />
-            <TableColumn fx:id="colInfractorNif" editable="false" prefWidth="121.0" text="NIF INFRACTOR" />
-            <TableColumn fx:id="colInfraction" editable="false" minWidth="0.0" prefWidth="209.0" text="INFRACCION" />
-            <TableColumn fx:id="colInfDescription" editable="false" prefWidth="230.0" text="DESCRIPCION" />
-            <TableColumn fx:id="colAmount" editable="false" prefWidth="93.0" text="IMPORTE" />
-            <TableColumn fx:id="colCardPoints" editable="false" prefWidth="69.0" text="PUNTOS" />
-            <TableColumn fx:id="colPoliceName" editable="false" prefWidth="138.0" text="NOMBRE POLICIA" />
-            <TableColumn fx:id="colPolicePlate" editable="false" prefWidth="73.0" text="PLACA" />
+          <TableColumn fx:id="colDate" editable="false" prefWidth="92.0" sortType="DESCENDING" text="FECHA" />
+            <TableColumn fx:id="colInfractorNif" editable="false" prefWidth="123.0" text="NIF INFRACTOR" />
+            <TableColumn fx:id="colInfraction" editable="false" minWidth="0.0" prefWidth="217.0" text="INFRACCION" />
+            <TableColumn fx:id="colInfDescription" editable="false" prefWidth="237.0" text="DESCRIPCION" />
+            <TableColumn fx:id="colAmount" editable="false" prefWidth="86.0" text="IMPORTE" />
+            <TableColumn fx:id="colCardPoints" editable="false" prefWidth="79.0" text="PUNTOS" />
+            <TableColumn fx:id="colPoliceName" editable="false" prefWidth="141.0" text="NOMBRE POLICIA" />
+            <TableColumn fx:id="colPolicePlate" editable="false" prefWidth="75.0" text="PLACA" />
         </columns>
       </TableView>
       <VBox layoutX="15.0" layoutY="378.0" prefHeight="84.0" prefWidth="210.0" style="-fx-border-color: RED; -fx-border-radius: 5;">
