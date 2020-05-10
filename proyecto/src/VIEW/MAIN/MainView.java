@@ -58,14 +58,12 @@ public class MainView implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
             Alerts.instanceOf().generateError(msjError + e.getMessage());
+            System.out.println(e.getCause());
             finaliceProgram();
         }
     }
 
     private void finaliceProgram() {
-
-
-
         Stage stage = (Stage) lbltoday.getScene().getWindow();
         stage.close();
     }
