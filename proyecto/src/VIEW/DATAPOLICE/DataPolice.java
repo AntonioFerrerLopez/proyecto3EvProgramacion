@@ -5,17 +5,21 @@ import DATA.DAO.FilesOfPoliceDAO;
 import DATA.DAO.PoliceDAO;
 import MODEL.Police;
 import VIEW.TOOLS.Alerts;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSnackbar;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import com.jfoenix.controls.JFXButton;
 
 import java.io.File;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
 public class DataPolice {
@@ -28,11 +32,6 @@ public class DataPolice {
     public AnchorPane rootPane;
     public JFXSnackbar snackInfo;
 
-    public void closeView(ActionEvent actionEvent) {
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
 
     public void loadAgents(ActionEvent actionEvent){
         FilesOfPoliceDAO  filesOfPoliceDAO = new FilesOfPoliceDAO();
@@ -90,4 +89,12 @@ public class DataPolice {
             Alerts.instanceOf().generateError("NO se han podido actualizar las referencias de las fotografías");
         }
     }
+
+    public void closeView(ActionEvent actionEvent) {
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+
 }
