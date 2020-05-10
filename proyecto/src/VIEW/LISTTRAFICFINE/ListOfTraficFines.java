@@ -60,6 +60,8 @@ public class ListOfTraficFines implements Initializable {
         setupFilterSelector();
         updateLvPolicesList();
         setupTableOfTraficFines();
+        lvPolicesList.setDisable(true);
+
     }
 
     private void setupFilterSelector() {
@@ -69,6 +71,7 @@ public class ListOfTraficFines implements Initializable {
         options.add(SELECT_PLATE_NUMBER);
         filterSelector.setItems(options);
         filterSelector.getSelectionModel().selectFirst();
+
     }
 
     private void setupTableOfTraficFines() {
@@ -96,14 +99,13 @@ public class ListOfTraficFines implements Initializable {
         }
     }
 
-
     private void updateLvPolicesList() {
         listOfPolices = FXCollections.observableArrayList();
         lvPolicesList.setItems(listOfPolices);
         try {
             List<Police> policesFromDb = PoliceDAO.instanceOf().obtainAll();
             for(Police police : policesFromDb){
-                if ((filterSelector.getSelectionModel().getSelectedItem().equals(SELECT_NAME))) {
+                if (filterSelector.getSelectionModel().getSelectedItem().equals(SELECT_NAME) || filterSelector.getSelectionModel().getSelectedItem().equals(SELECT_ALL)) {
                     listOfPolices.add(police.getName());
                 } else {
                     listOfPolices.add(police.getPolicePlateNumber());
