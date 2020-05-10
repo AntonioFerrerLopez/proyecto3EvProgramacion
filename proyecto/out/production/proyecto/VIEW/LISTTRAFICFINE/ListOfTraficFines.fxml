@@ -90,7 +90,7 @@
             </Label>
          </children>
       </VBox>
-      <JFXButton fx:id="btnBack" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="22.0" layoutY="490.0" onAction="#BackToMain" prefHeight="31.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text=" ATRAS" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton fx:id="btnBack" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="79.0" layoutY="490.0" onAction="#BackToMain" prefHeight="31.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text=" ATRAS" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="Droid Sans Fallback" size="11.0" />
          </font>

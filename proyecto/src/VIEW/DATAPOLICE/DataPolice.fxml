@@ -21,7 +21,7 @@
             <FontAwesomeIconView fill="#f82929" glyphName="SIGN_OUT" size="20.0" text="" wrappingWidth="18.85714340209961" />
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="262.0" layoutY="94.0" onAction="#loadAgents" style="-fx-border-color: blue;" text="CARGAR" />
+      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="206.0" layoutY="94.0" onAction="#loadAgents" style="-fx-border-color: blue; -fx-border-radius: 10;" text="CARGAR DESDE ARCHIVO" />
       <Label layoutX="108.0" layoutY="14.0" prefHeight="69.0" prefWidth="384.0" text="GESTOR DE AGENTES ">
          <font>
             <Font name="Khmer OS System" size="34.0" />
