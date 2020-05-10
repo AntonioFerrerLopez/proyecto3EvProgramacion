@@ -3,6 +3,7 @@ package VIEW.LISTTRAFICFINE;
 
 import DATA.DAO.PoliceDAO;
 import MODEL.Police;
+import MODEL.TraficFineJoinPolice;
 import VIEW.TOOLS.Alerts;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -27,23 +29,29 @@ public class ListOfTraficFines implements Initializable {
     public JFXListView lvPolicesList;
     public TableView tableOfTraficFines;
     public TableColumn colDate;
-    public TableColumn colPolice;
-    public TableColumn colNifInfractor;
-    public TableColumn colAmmount;
-    public TableColumn colPointRetired;
+    public TableColumn colInfractorNif;
+    public TableColumn colInfraction;
+    public TableColumn colInfDescription;
+    public TableColumn colAmount;
+    public TableColumn colCardPoints;
+    public TableColumn colPoliceName;
+    public TableColumn colPolicePlate;
     public Label lblTotalTraficFineAmmount;
     public JFXButton btnBack;
-    
+
     private static final String SELECT_NAME = "NOMBRE" ;
     private static final String SELECT_PLATE_NUMBER = "NUMERO PLACA" ;
 
-    
+    private ObservableList<TraficFineJoinPolice> finesListToPrint = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setupFilterSelector();
         setupLvPolicesList();
+        setupTableOfTraficFines();
+
     }
-    
+
     private void setupFilterSelector() {
         ObservableList<String> options = FXCollections.observableArrayList();
         options.add(SELECT_NAME);
@@ -67,12 +75,22 @@ public class ListOfTraficFines implements Initializable {
         } catch (SQLException errorSql) {
             Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode(),errorSql.getMessage());
         }
+    }
 
+    private void setupTableOfTraficFines() {
+          colDate.setCellValueFactory(new PropertyValueFactory("dateFine"));
+          colInfractorNif.setCellValueFactory(new PropertyValueFactory("nifInfractorFine"));
+          colInfraction.setCellValueFactory(new PropertyValueFactory("descriptionType"));
+          colInfDescription.setCellValueFactory(new PropertyValueFactory("descriptionFine"));
+          colAmount.setCellValueFactory(new PropertyValueFactory("ammountFine"));
+          colCardPoints.setCellValueFactory(new PropertyValueFactory("drivingCardPoints"));
+          colPoliceName.setCellValueFactory(new PropertyValueFactory("policeName"));
+          colPolicePlate.setCellValueFactory(new PropertyValueFactory("policePlateNumber"));
     }
 
 
-    
-    
+
+
     
     
     
