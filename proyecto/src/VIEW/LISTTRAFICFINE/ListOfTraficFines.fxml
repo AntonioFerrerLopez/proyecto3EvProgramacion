@@ -60,14 +60,14 @@
       </AnchorPane>
       <TableView fx:id="tableOfTraficFines" layoutX="250.0" layoutY="64.0" prefHeight="457.0" prefWidth="1036.0">
         <columns>
-          <TableColumn fx:id="colDate" editable="false" prefWidth="114.0" text="FECHA" />
-            <TableColumn fx:id="colInfractorNif" editable="false" prefWidth="120.0" text="NIF INFRACTOR" />
-            <TableColumn fx:id="colInfraction" editable="false" minWidth="0.0" prefWidth="142.0" text="INFRACCION" />
-            <TableColumn fx:id="colInfDescription" editable="false" prefWidth="151.0" text="DESCRIPCION" />
-            <TableColumn fx:id="colAmount" editable="false" prefWidth="95.0" text="IMPORTE" />
-            <TableColumn fx:id="colCardPoints" editable="false" prefWidth="134.0" text="Puntos Retirados" />
-            <TableColumn fx:id="colPoliceName" editable="false" prefWidth="151.0" text="NOMBRE POLICIA" />
-            <TableColumn fx:id="colPolicePlate" editable="false" prefWidth="128.0" text="NUMERO PLACA " />
+          <TableColumn fx:id="colDate" editable="false" prefWidth="102.0" sortType="DESCENDING" text="FECHA" />
+            <TableColumn fx:id="colInfractorNif" editable="false" prefWidth="121.0" text="NIF INFRACTOR" />
+            <TableColumn fx:id="colInfraction" editable="false" minWidth="0.0" prefWidth="209.0" text="INFRACCION" />
+            <TableColumn fx:id="colInfDescription" editable="false" prefWidth="230.0" text="DESCRIPCION" />
+            <TableColumn fx:id="colAmount" editable="false" prefWidth="93.0" text="IMPORTE" />
+            <TableColumn fx:id="colCardPoints" editable="false" prefWidth="69.0" text="PUNTOS" />
+            <TableColumn fx:id="colPoliceName" editable="false" prefWidth="138.0" text="NOMBRE POLICIA" />
+            <TableColumn fx:id="colPolicePlate" editable="false" prefWidth="73.0" text="PLACA" />
         </columns>
       </TableView>
       <VBox layoutX="15.0" layoutY="378.0" prefHeight="84.0" prefWidth="210.0" style="-fx-border-color: RED; -fx-border-radius: 5;">

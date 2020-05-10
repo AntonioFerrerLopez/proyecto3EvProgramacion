@@ -12,6 +12,7 @@ public class TraficFineJoinPolice {
     private Integer drivingCardPoints;
     private String policeName;
     private String policePlateNumber ;
+    private String dateFineFormatted;
 
 
     public TraficFineJoinPolice(Long idFine, String descriptionFine, LocalDateTime dateFine, Double ammountFine, String nifInfractorFine, String descriptionType, Integer drivingCardPoints, String policeName, String policePlateNumber) {
@@ -25,6 +26,14 @@ public class TraficFineJoinPolice {
         this.policeName = policeName;
         this.policePlateNumber = policePlateNumber;
 
+    }
+
+    public String getDateFineFormatted() {
+        return dateFineFormatted;
+    }
+
+    public void setDateFineFormatted(String dateFineFormatted) {
+        this.dateFineFormatted = dateFineFormatted;
     }
 
     public Long getIdFine() {
@@ -111,6 +120,7 @@ public class TraficFineJoinPolice {
                 ", drivingCardPoints=" + drivingCardPoints +
                 ", policeName='" + policeName + '\'' +
                 ", policePlateNumber='" + policePlateNumber + '\'' +
+                ", dateFineFormatted='" + dateFineFormatted + '\'' +
                 '}';
     }
 }

@@ -21,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -45,13 +46,12 @@ public class ListOfTraficFines implements Initializable {
     private static final String SELECT_PLATE_NUMBER = "NUMERO PLACA" ;
 
     private List<TraficFineJoinPolice> allFinesOnDb;
-    private ObservableList<String> listOfPolices = FXCollections.observableArrayList();
-    private ObservableList<TraficFineJoinPolice> finesListToPrint = FXCollections.observableArrayList();
+    private final ObservableList<TraficFineJoinPolice> finesListToPrint = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-             allFinesOnDb = TraficFineJoinPoliceDAO.instanceOf().obtainAllFinesRelatedPolices();
+             allFinesOnDb = formatDate(TraficFineJoinPoliceDAO.instanceOf().obtainAllFinesRelatedPolices());
              finesListToPrint.setAll(allFinesOnDb);
              tableOfTraficFines.setItems(finesListToPrint);
         } catch (SQLException errorSql) {
@@ -62,6 +62,14 @@ public class ListOfTraficFines implements Initializable {
         setupTableOfTraficFines();
         lvPolicesList.setDisable(true);
 
+    }
+
+    private List<TraficFineJoinPolice> formatDate(List<TraficFineJoinPolice> obtainAllFinesRelatedPolices) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy");
+        for(TraficFineJoinPolice fine : obtainAllFinesRelatedPolices){
+            fine.setDateFineFormatted(fine.getDateFine().format(formatter));
+        }
+        return obtainAllFinesRelatedPolices;
     }
 
     private void setupFilterSelector() {
@@ -75,7 +83,7 @@ public class ListOfTraficFines implements Initializable {
     }
 
     private void setupTableOfTraficFines() {
-          colDate.setCellValueFactory(new PropertyValueFactory("dateFine"));
+          colDate.setCellValueFactory(new PropertyValueFactory("dateFineFormatted"));
           colInfractorNif.setCellValueFactory(new PropertyValueFactory("nifInfractorFine"));
           colInfraction.setCellValueFactory(new PropertyValueFactory("descriptionType"));
           colInfDescription.setCellValueFactory(new PropertyValueFactory("descriptionFine"));
@@ -100,7 +108,7 @@ public class ListOfTraficFines implements Initializable {
     }
 
     private void updateLvPolicesList() {
-        listOfPolices = FXCollections.observableArrayList();
+        ObservableList<String> listOfPolices = FXCollections.observableArrayList();
         lvPolicesList.setItems(listOfPolices);
         try {
             List<Police> policesFromDb = PoliceDAO.instanceOf().obtainAll();
@@ -118,10 +126,10 @@ public class ListOfTraficFines implements Initializable {
     }
 
     public void hasSelection(MouseEvent mouseEvent) {
-        filterAndUpdateBySelection(filterSelector.getSelectionModel().getSelectedItem());
+        filterAndUpdateBySelection();
     }
 
-    private void filterAndUpdateBySelection(String selectedItem) {
+    private void filterAndUpdateBySelection() {
         String typeOfSelection = filterSelector.getSelectionModel().getSelectedItem();
         finesListToPrint.clear();
         for(TraficFineJoinPolice fine : allFinesOnDb){
