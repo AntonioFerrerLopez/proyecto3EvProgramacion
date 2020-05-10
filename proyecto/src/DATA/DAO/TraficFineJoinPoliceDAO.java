@@ -16,10 +16,7 @@ public class TraficFineJoinPoliceDAO {
     private static TraficFineJoinPoliceDAO instance = null ;
     private final Connection conn ;
 
-    private final String obtainAllFinesRelatedPolicesSQL = "SELECT multas.id AS fineId, multas.descripcion AS descriptionFine, multas.fecha AS dateFine , multas.importe AS ammountFine, multas.nifinfractor AS nifInfractorFine, \n" +
-            "multastipo.descripcion AS descriptionType , multastipo.carnetpuntos AS drivingCardPoints,\n" +
-            " policia.nombre AS policeName ,policia.numplaca AS policePlateNumber\n" +
-            "FROM multastipo  INNER JOIN multas ON multas.idtipo = multastipo.id INNER JOIN  policia ON policia.idPolicia = multas.idpolicia; ";
+    private final String obtainAllFinesRelatedPolicesSQL = "SELECT multas.id, multas.descripcion, multas.fecha , multas.importe , multas.nifinfractor , multastipo.descripcion, multastipo.carnetpuntos , policia.nombre  ,policia.numplaca FROM multastipo  INNER JOIN multas ON multas.idtipo = multastipo.id INNER JOIN  policia ON policia.idPolicia = multas.idpolicia; ";
 
     public TraficFineJoinPoliceDAO() throws SQLException{
         this.conn =  DbConnector.dbInstance().getConn();
@@ -41,18 +38,19 @@ public class TraficFineJoinPoliceDAO {
 
     private List<TraficFineJoinPolice> formatToObject(ResultSet resultFromDb) throws SQLException {
         List<TraficFineJoinPolice> finesFromDb = new ArrayList<>();
+        System.out.println(resultFromDb.toString());
         while (resultFromDb.next()){
             resultFromDb.getString("fecha");
             TraficFineJoinPolice traficFineJoinPolice = new TraficFineJoinPolice(
-                    resultFromDb.getLong("idFine"),
-                    resultFromDb.getString("descriptionFine"),
-                    resultFromDb.getTimestamp("dateFine").toLocalDateTime() ,
-                    resultFromDb.getDouble("ammountFine"),
-                    resultFromDb.getString("nifInfractorFine"),
-                    resultFromDb.getString("descriptionType"),
-                    resultFromDb.getInt("drivingCardPoints") ,
-                    resultFromDb.getString("policeName") ,
-                    resultFromDb.getString("policePlateNumber") );
+                    resultFromDb.getLong("multas.id"),
+                    resultFromDb.getString("multas.descripcion"),
+                    resultFromDb.getTimestamp("multas.fecha").toLocalDateTime() ,
+                    resultFromDb.getDouble("multas.importe"),
+                    resultFromDb.getString("multas.nifinfractor"),
+                    resultFromDb.getString("multastipo.descripcion"),
+                    resultFromDb.getInt("multastipo.carnetpuntos") ,
+                    resultFromDb.getString("policia.nombre") ,
+                    resultFromDb.getString("policia.numplaca") );
 
             finesFromDb.add(traficFineJoinPolice);
         }

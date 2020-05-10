@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="954.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.LISTTRAFICFINE.ListOfTraficFines">
+<AnchorPane prefHeight="533.0" prefWidth="1291.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.LISTTRAFICFINE.ListOfTraficFines">
    <children>
       <HBox layoutX="261.0" layoutY="14.0" prefHeight="44.0" prefWidth="433.0">
          <children>
@@ -58,13 +58,16 @@
             </VBox>
          </children>
       </AnchorPane>
-      <TableView fx:id="tableOfTraficFines" layoutX="250.0" layoutY="64.0" prefHeight="457.0" prefWidth="693.0">
+      <TableView fx:id="tableOfTraficFines" layoutX="250.0" layoutY="64.0" prefHeight="457.0" prefWidth="1036.0">
         <columns>
-          <TableColumn fx:id="colDate" prefWidth="197.0" text="FECHA" />
-          <TableColumn fx:id="colPolice" prefWidth="101.0" text="AGENTE" />
-            <TableColumn fx:id="colNifInfractor" prefWidth="121.0" text="NIF INFRACTOR" />
-            <TableColumn fx:id="colAmmount" prefWidth="115.0" text="IMPORTE" />
-            <TableColumn fx:id="colPointRetired" prefWidth="158.0" text="PUNTOS RETIRADOS" />
+          <TableColumn fx:id="colDate" editable="false" prefWidth="114.0" text="FECHA" />
+            <TableColumn fx:id="colInfractorNif" editable="false" prefWidth="120.0" text="NIF INFRACTOR" />
+            <TableColumn fx:id="colInfraction" editable="false" minWidth="0.0" prefWidth="142.0" text="INFRACCION" />
+            <TableColumn fx:id="colInfDescription" editable="false" prefWidth="151.0" text="DESCRIPCION" />
+            <TableColumn fx:id="colAmount" editable="false" prefWidth="95.0" text="IMPORTE" />
+            <TableColumn fx:id="colCardPoints" editable="false" prefWidth="134.0" text="Puntos Retirados" />
+            <TableColumn fx:id="colPoliceName" editable="false" prefWidth="151.0" text="NOMBRE POLICIA" />
+            <TableColumn fx:id="colPolicePlate" editable="false" prefWidth="128.0" text="NUMERO PLACA " />
         </columns>
       </TableView>
       <VBox layoutX="15.0" layoutY="378.0" prefHeight="84.0" prefWidth="210.0" style="-fx-border-color: RED; -fx-border-radius: 5;">
