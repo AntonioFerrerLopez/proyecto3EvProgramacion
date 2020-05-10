@@ -60,7 +60,7 @@
       </AnchorPane>
       <TableView fx:id="tableOfTraficFines" layoutX="250.0" layoutY="64.0" prefHeight="457.0" prefWidth="1036.0">
         <columns>
-          <TableColumn fx:id="colDate" editable="false" prefWidth="102.0" sortType="DESCENDING" styleClass="-fx-text-alignment: center" text="FECHA" />
+          <TableColumn fx:id="colDate" editable="false" prefWidth="102.0" sortType="DESCENDING" text="FECHA" />
             <TableColumn fx:id="colInfractorNif" editable="false" prefWidth="121.0" text="NIF INFRACTOR" />
             <TableColumn fx:id="colInfraction" editable="false" minWidth="0.0" prefWidth="209.0" text="INFRACCION" />
             <TableColumn fx:id="colInfDescription" editable="false" prefWidth="230.0" text="DESCRIPCION" />

@@ -47,6 +47,7 @@ public class ListOfTraficFines implements Initializable {
 
     private List<TraficFineJoinPolice> allFinesOnDb;
     private final ObservableList<TraficFineJoinPolice> finesListToPrint = FXCollections.observableArrayList();
+    private Double totalAmount = 0.0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,6 +62,7 @@ public class ListOfTraficFines implements Initializable {
         updateLvPolicesList();
         setupTableOfTraficFines();
         lvPolicesList.setDisable(true);
+        calculateTotalAmmountAllFines();
 
     }
 
@@ -96,15 +98,24 @@ public class ListOfTraficFines implements Initializable {
 
     public void filterChanged(ActionEvent actionEvent) {
         String filter = filterSelector.getSelectionModel().getSelectedItem();
+        totalAmount = 0.0;
         if(filter.equals(SELECT_ALL)){
             lvPolicesList.setDisable(true);
             finesListToPrint.setAll(allFinesOnDb);
             tableOfTraficFines.refresh();
+            calculateTotalAmmountAllFines();
         }
         if(filter.equals(SELECT_NAME) || filter.equals(SELECT_PLATE_NUMBER) ){
             lvPolicesList.setDisable(false);
             updateLvPolicesList();
         }
+    }
+
+    private void calculateTotalAmmountAllFines() {
+        for(TraficFineJoinPolice fineOnDb : allFinesOnDb){
+            updateTotalFineAmount(fineOnDb.getAmmountFine());
+        }
+        lblTotalTraficFineAmmount.setText(totalAmount + " €");
     }
 
     private void updateLvPolicesList() {
@@ -126,6 +137,7 @@ public class ListOfTraficFines implements Initializable {
     }
 
     public void hasSelection(MouseEvent mouseEvent) {
+        totalAmount = 0.0;
         filterAndUpdateBySelection();
     }
 
@@ -134,13 +146,24 @@ public class ListOfTraficFines implements Initializable {
         finesListToPrint.clear();
         for(TraficFineJoinPolice fine : allFinesOnDb){
             if(typeOfSelection.equals(SELECT_NAME)){
-                if(fine.getPoliceName().equals(lvPolicesList.getSelectionModel().getSelectedItem())) finesListToPrint.add(fine);
+                if(fine.getPoliceName().equals(lvPolicesList.getSelectionModel().getSelectedItem())){
+                    finesListToPrint.add(fine);
+                    updateTotalFineAmount(fine.getAmmountFine());
+                }
             }
             if(typeOfSelection.equals(SELECT_PLATE_NUMBER)){
-                if(fine.getPolicePlateNumber().equals(lvPolicesList.getSelectionModel().getSelectedItem())) finesListToPrint.add(fine);
+                if(fine.getPolicePlateNumber().equals(lvPolicesList.getSelectionModel().getSelectedItem())){
+                    finesListToPrint.add(fine);
+                    updateTotalFineAmount(fine.getAmmountFine());
+                }
             }
         }
-       tableOfTraficFines.refresh();
+        lblTotalTraficFineAmmount.setText(totalAmount + " €");
+        tableOfTraficFines.refresh();
+    }
+
+    private void updateTotalFineAmount(Double amount) {
+        totalAmount += amount;
     }
 
     public void BackToMain(ActionEvent actionEvent) {
