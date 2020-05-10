@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43dd5fa3-6e11-4910-9c76-22ab62985769" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto/VIEW/INSERTTRAFICFINES/InsertTraficFine.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto/VIEW/INSERTTRAFICFINES/InsertTraficFine.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/INSERTTRAFICFINES/InsertTraficFine.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/INSERTTRAFICFINES/InsertTraficFine.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VIEW/INSERTTRAFICFINES/InsertTraficFine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/INSERTTRAFICFINES/InsertTraficFine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/MAIN/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/MAIN/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VIEW/TOOLS/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VIEW/TOOLS/Alerts.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
       <workItem from="1588926921910" duration="31769000" />
       <workItem from="1589013556904" duration="21632000" />
       <workItem from="1589040815921" duration="10195000" />
-      <workItem from="1589102719620" duration="23903000" />
+      <workItem from="1589102719620" duration="24097000" />
     </task>
     <servers />
   </component>

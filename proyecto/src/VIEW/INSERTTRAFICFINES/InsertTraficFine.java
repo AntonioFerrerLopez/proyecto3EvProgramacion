@@ -286,6 +286,9 @@ public class InsertTraficFine implements Initializable {
             infractorsName.setText("");
             infractionDescription.setText("");
             infractorsNif.setText("");
+            chDiscount.setSelected(false);
+            cmbTypeOfPenalty.getSelectionModel().selectFirst();
+
     }
 
     public void btnClose(ActionEvent actionEvent) {
