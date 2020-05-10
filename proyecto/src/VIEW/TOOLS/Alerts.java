@@ -18,9 +18,9 @@ public class Alerts {
     }
 
     public void generateError(String msj) {
-        Alert warning = new Alert(Alert.AlertType.ERROR);
-        warning.setContentText(msj);
-        warning.showAndWait();
+        Alert error = new Alert(Alert.AlertType.ERROR);
+        error.setContentText(msj);
+        error.showAndWait();
     }
 
     public  void generateWarningWithErrorCode(Integer errorCode , String msj  ) {
@@ -32,23 +32,12 @@ public class Alerts {
     }
 
     public void generateConfirmation(String msj) {
-        Alert warning = new Alert(Alert.AlertType.CONFIRMATION);
-        warning.setContentText(msj);
-        warning.showAndWait();
+        Alert confirmation = new Alert(Alert.AlertType.INFORMATION);
+        confirmation.setTitle("INFORMACIÓN");
+        confirmation.setHeaderText("");
+        confirmation.setContentText(msj);
+        confirmation.showAndWait();
     }
 
-    public boolean generateConfirmation(String msjAction, String msjQuery){
-        boolean confirmation = false ;
-        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setTitle("Porfavor confirme la orden");
-        confirmationAlert.setHeaderText(msjAction);
-        confirmationAlert.setContentText(msjQuery);
-
-        Optional<ButtonType> result = confirmationAlert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            confirmation = true;
-        }
-        return confirmation;
-    }
 
 }

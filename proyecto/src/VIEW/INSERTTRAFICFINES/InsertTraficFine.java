@@ -242,7 +242,6 @@ public class InsertTraficFine implements Initializable {
         if(validateAllFields()){
             try {
                TraficFine trf=  generateTraficFineObject();
-                System.out.println(trf);
                 TraficFineDAO.instanceOf().insert(trf);
                 Alerts.instanceOf().generateConfirmation("MULTA REGISTRADA EN SISTEMA");
                 cleanAll(actionEvent);

@@ -163,7 +163,13 @@
                               <Font name="Dank Mono Regular" size="15.0" />
                            </font>
                         </Label>
-                        <JFXDatePicker fx:id="dateChooser" defaultColor="#076ec3" editable="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#userSelectsDate" prefHeight="25.0" prefWidth="175.0" />
+                        <JFXDatePicker fx:id="dateChooser" defaultColor="#076ec3" editable="false" onAction="#userSelectsDate" prefHeight="26.0" prefWidth="157.0">
+                           <cursor>
+                              <Cursor fx:constant="CROSSHAIR" />
+                           </cursor>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding></JFXDatePicker>
                      </children>
                   </HBox>
                   <HBox prefHeight="42.0" prefWidth="402.0">
