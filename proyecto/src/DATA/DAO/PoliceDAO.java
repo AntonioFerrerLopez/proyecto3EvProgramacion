@@ -15,6 +15,7 @@ public class PoliceDAO implements CRUD<Police> {
     private final String obtainOneByIdSQL = "SELECT * from policia  WHERE idPolicia = ? ";
     private final String obtainOneByDepartmentSQL = "SELECT * from policia  WHERE departamento = ? ";
     private final String updateOneByIdSQL = "UPDATE policia SET nombre = ?, numplaca = ?, edad = ?, departamento = ?, foto = ? WHERE idPolicia = ?";
+    private final String updateAllPhotoReferences = "UPDATE policia SET foto = numplaca";
     private final String deleteOneByIdSQL = "DELETE * from policia  WHERE idPolicia = ? ";
 
     private PoliceDAO() throws SQLException {
@@ -101,6 +102,11 @@ public class PoliceDAO implements CRUD<Police> {
         deletePs.setLong(1, id);
         isDeleted = deletePs.execute();
         return isDeleted;
+    }
+
+    public void updatePhotoLinkAllPolices() throws SQLException {
+        Statement updateStm = conn.createStatement();
+        updateStm.execute(updateAllPhotoReferences);
     }
 
     private List<Police> formatToObject(ResultSet resultFromDb) throws SQLException {

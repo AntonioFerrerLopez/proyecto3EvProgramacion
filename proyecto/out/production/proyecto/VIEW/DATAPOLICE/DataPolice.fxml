@@ -5,12 +5,15 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="188.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.DATAPOLICE.DataPolice">
+<AnchorPane fx:id="rootPane" prefHeight="239.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.DATAPOLICE.DataPolice">
    <children>
-      <JFXButton fx:id="btnClose" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="492.0" layoutY="140.0" onAction="#closeView" prefHeight="27.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="Salir" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton fx:id="btnClose" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="190.0" layoutY="155.0" onAction="#closeView" prefHeight="28.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="ATRAS" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="Droid Sans Fallback" size="11.0" />
          </font>
@@ -18,15 +21,25 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <FontAwesomeIconView fill="#f82929" glyphName="SIGN_OUT" size="20.0" text="" wrappingWidth="18.85714340209961" />
+            <FontAwesomeIconView fill="RED" glyphName="ANGLE_DOUBLE_LEFT" size="20" />
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="262.0" layoutY="94.0" onAction="#loadAgents" style="-fx-border-color: blue;" text="CARGAR" />
-      <Label layoutX="108.0" layoutY="14.0" prefHeight="69.0" prefWidth="384.0" text="GESTOR DE AGENTES ">
-         <font>
-            <Font name="Khmer OS System" size="34.0" />
-         </font>
-      </Label>
+      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="135.0" layoutY="63.0" onAction="#loadAgents" style="-fx-border-color: blue; -fx-border-radius: 10;" text="CARGAR DESDE ARCHIVO" />
       <JFXSnackbar fx:id="snackInfo" layoutX="301.0" layoutY="205.0" />
+      <JFXButton fx:id="btnUpadatePhotoLink" buttonType="RAISED" layoutX="141.0" layoutY="101.0" onAction="#updatePhotoLink" style="-fx-border-color: blue; -fx-border-radius: 10;" text="Actualizar Fotos Policias" />
+      <HBox alignment="CENTER" layoutY="8.0" prefHeight="44.0" prefWidth="458.0">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/Images/dgpLogoGR.jpeg" />
+               </image>
+            </ImageView>
+            <Label prefHeight="39.0" prefWidth="341.0" text="GESTOR DE AGENTES">
+               <font>
+                  <Font name="Dank Mono Regular" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

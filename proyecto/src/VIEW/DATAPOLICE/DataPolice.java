@@ -82,4 +82,12 @@ public class DataPolice {
         bar.show(msj , 3000);
     }
 
+    public void updatePhotoLink(ActionEvent actionEvent) {
+        try {
+            PoliceDAO.instanceOf().updatePhotoLinkAllPolices();
+            generateSnackBar("Referencias de fotografías ACTUALIZADAS CORRECTAMENTE");
+        } catch (SQLException errorSql) {
+            Alerts.instanceOf().generateError("NO se han podido actualizar las referencias de las fotografías");
+        }
+    }
 }
