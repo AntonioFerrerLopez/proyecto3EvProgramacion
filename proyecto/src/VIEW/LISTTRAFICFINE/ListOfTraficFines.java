@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -63,7 +64,7 @@ public class ListOfTraficFines implements Initializable {
         setupTableOfTraficFines();
         lvPolicesList.setDisable(true);
         calculateTotalAmmountAllFines();
-
+        lvPolicesList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     private List<TraficFineJoinPolice> formatDate(List<TraficFineJoinPolice> obtainAllFinesRelatedPolices) {
@@ -121,6 +122,7 @@ public class ListOfTraficFines implements Initializable {
     private void updateLvPolicesList() {
         ObservableList<String> listOfPolices = FXCollections.observableArrayList();
         lvPolicesList.setItems(listOfPolices);
+
         try {
             List<Police> policesFromDb = PoliceDAO.instanceOf().obtainAll();
             for(Police police : policesFromDb){
@@ -144,15 +146,17 @@ public class ListOfTraficFines implements Initializable {
     private void filterAndUpdateBySelection() {
         String typeOfSelection = filterSelector.getSelectionModel().getSelectedItem();
         finesListToPrint.clear();
+        System.out.println(lvPolicesList.getSelectionModel().getSelectedItems() + " TODOS" );
+        System.out.println(lvPolicesList.getSelectionModel().getSelectedItem() + " UNO" );
         for(TraficFineJoinPolice fine : allFinesOnDb){
             if(typeOfSelection.equals(SELECT_NAME)){
-                if(fine.getPoliceName().equals(lvPolicesList.getSelectionModel().getSelectedItem())){
+                if(existsInList(fine)){
                     finesListToPrint.add(fine);
                     updateTotalFineAmount(fine.getAmmountFine());
                 }
             }
             if(typeOfSelection.equals(SELECT_PLATE_NUMBER)){
-                if(fine.getPolicePlateNumber().equals(lvPolicesList.getSelectionModel().getSelectedItem())){
+                if(existsInList(fine)){
                     finesListToPrint.add(fine);
                     updateTotalFineAmount(fine.getAmmountFine());
                 }
@@ -160,6 +164,11 @@ public class ListOfTraficFines implements Initializable {
         }
         lblTotalTraficFineAmmount.setText(totalAmount + " €");
         tableOfTraficFines.refresh();
+    }
+    private boolean existsInList(TraficFineJoinPolice fine){
+        ObservableList<String> selection = lvPolicesList.getSelectionModel().getSelectedItems();
+        return (selection.contains(fine.getPoliceName()) || selection.contains(fine.getPolicePlateNumber()) );
+
     }
 
     private void updateTotalFineAmount(Double amount) {
