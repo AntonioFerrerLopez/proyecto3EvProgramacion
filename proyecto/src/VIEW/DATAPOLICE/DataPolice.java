@@ -95,6 +95,4 @@ public class DataPolice {
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
-
-
 }
