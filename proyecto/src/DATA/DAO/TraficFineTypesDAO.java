@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TraficFineTypesDAO implements DAO<TraficFineTypes> {
+public class TraficFineTypesDAO implements CRUD<TraficFineTypes> {
 
     private static TraficFineTypesDAO instance = null ;
     private final Connection conn;

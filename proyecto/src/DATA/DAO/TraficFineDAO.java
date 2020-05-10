@@ -2,14 +2,11 @@ package DATA.DAO;
 
 import DATA.DATABASE.DbConnector;
 import MODEL.TraficFine;
-
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TraficFineDAO implements DAO<TraficFine> {
+public class TraficFineDAO implements CRUD<TraficFine> {
     private static TraficFineDAO instance = null ;
     private final Connection conn;
     private final String insertSQL = "INSERT INTO multas (descripcion, fecha, importe, idpolicia, nifinfractor, idtipo)  VALUES (?,?,?,?,?,?)";
@@ -44,7 +41,7 @@ public class TraficFineDAO implements DAO<TraficFine> {
     }
 
     @Override
-    public List<TraficFine> insertFromList(List<TraficFine> goL)  {
+    public List<TraficFine> insertFromList(List<TraficFine> goL) {
         return null;
     }
 
@@ -92,8 +89,6 @@ public class TraficFineDAO implements DAO<TraficFine> {
     private List<TraficFine> formatToObject(ResultSet resultFromDb) throws SQLException {
         List<TraficFine> finesFromDb = new ArrayList<>();
         while (resultFromDb.next()){
-            System.out.println(resultFromDb.getString("fecha"));
-
             resultFromDb.getString("fecha");
             TraficFine traficFine = new  TraficFine(
                     resultFromDb.getLong("id"),

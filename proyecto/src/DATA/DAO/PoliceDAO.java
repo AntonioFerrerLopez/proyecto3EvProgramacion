@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PoliceDAO implements DAO<Police>{
+public class PoliceDAO implements CRUD<Police> {
     private static PoliceDAO instance = null ;
     private Connection conn;
     private final String insertSQL = "INSERT INTO policia (nombre, numplaca, edad, departamento, foto)  VALUES (?,?,?,?,?)";

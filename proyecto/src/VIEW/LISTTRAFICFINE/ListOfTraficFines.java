@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -38,17 +39,27 @@ public class ListOfTraficFines implements Initializable {
     private static final String SELECT_PLATE_NUMBER = "NUMERO PLACA" ;
     private List<Police> policesList;
     private List<TraficFine> traficFineList;
-    private ObservableList<String> observableListView = FXCollections.observableArrayList();
+    private ObservableList<String> observableListView ;
     private ObservableList<TraficFine> observableTableview = FXCollections.observableArrayList();
     private String filterSelected ;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setupTableList();
         setupFilterSelector();
         filterSelector.getSelectionModel().selectFirst();
         filterSelected = filterSelector.getSelectionModel().getSelectedItem();
         obtainListOfPolicesAndTraficFines();
-        chargePolicesListFiltered(filterSelected);
+        chargePolicesListInOrder(filterSelected);
+    }
+
+    private void setupTableList() {
+        observableListView = FXCollections.observableArrayList();
+        colDate.setCellValueFactory(new PropertyValueFactory("date"));
+        colPolice.setCellValueFactory(new PropertyValueFactory("idPolice"));
+        colNifInfractor.setCellValueFactory(new PropertyValueFactory("nifInfractor"));
+        colAmmount.setCellValueFactory(new PropertyValueFactory("ammount"));
+        colPointRetired.setCellValueFactory(new PropertyValueFactory("description"));
     }
 
     private void setupFilterSelector() {
@@ -68,10 +79,10 @@ public class ListOfTraficFines implements Initializable {
     }
 
 
-    private void chargePolicesListFiltered(String filter) {
+    private void chargePolicesListInOrder(String filter) {
+        observableListView.clear();
         if(filter == SELECT_NAME) {
             Collections.sort(policesList);
-            observableListView.clear();
             for (Police policeOnList : policesList ){
                 observableListView.add(policeOnList.getName());
             }
@@ -87,25 +98,28 @@ public class ListOfTraficFines implements Initializable {
 
     public void filterChanged(ActionEvent actionEvent) {
         filterSelected = filterSelector.getSelectionModel().getSelectedItem();
-        chargePolicesListFiltered(filterSelected);
+        chargePolicesListInOrder(filterSelected);
     }
 
     public void hasSelection(MouseEvent mouseEvent) {
-        String selection = lvPolicesList.getSelectionModel().getSelectedItem().toString();
-        updateTableOfTraficFines(selection , filterSelected);
+       List<TraficFine> listToUpdateTable = filterTraficList(lvPolicesList.getSelectionModel().getSelectedItem().toString());
+        updateTableOfTraficFines(listToUpdateTable);
     }
 
-    private void updateTableOfTraficFines(String selection , String filter) {
-      for (TraficFine fineOnList : traficFineList ){
-          if(filter.equals(SELECT_PLATE_NUMBER)){
-              if(fineOnList.getIdPolice().equals(selection)){
-                  observableTableview.add(fineOnList);
-              }
-          }
-          if(filter.equals(SELECT_PLATE_NUMBER)){
-              System.out.println(fineOnList);
-          }
-      }
+    private List<TraficFine> filterTraficList(String filter) {
+        for(TraficFine fine : traficFineList){
+
+        }
+        return null;
+    }
+
+    private void updateTableOfTraficFines(List<TraficFine> listOfFinesFiltered) {
+         observableTableview.clear();
+        for(TraficFine fine : listOfFinesFiltered) {
+          observableTableview.add(fine);
+        }
+        tableOfTraficFines.setItems(observableTableview);
+
     }
 
     public void BackToMain(ActionEvent actionEvent) {
