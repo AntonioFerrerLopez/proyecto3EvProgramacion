@@ -8,14 +8,8 @@ import java.sql.SQLException;
 public class DbConnector {
     private static DbConnector dbInstance = null ;
     private Connection conn = null ;
-    private final String JDBC_DRIVER = "jdbc:mariadb://";
-    private final String DB_SERVER = "192.168.1.52";
-    private final String DB_PORT = ":3306/";
-    private final String DB_NAME  = "comisaria";
-    private final String DB_USER_NAME = "adminComisaria";
-    private final String DB_PASSWD = "uPWQoZfkyedimter";
 
-    private DbConnector() throws SQLException {
+    private DbConnector() {
     }
 
     public static DbConnector dbInstance() throws SQLException {
@@ -27,7 +21,13 @@ public class DbConnector {
 
     public Connection getConn() throws SQLException {
        if(conn == null){
-                conn = DriverManager.getConnection(JDBC_DRIVER+DB_SERVER+DB_PORT+DB_NAME , DB_USER_NAME , DB_PASSWD);
+           String DB_PASSWD = "uPWQoZfkyedimter";
+           String DB_USER_NAME = "adminComisaria";
+           String DB_NAME = "comisaria";
+           String DB_PORT = ":3306/";
+           String DB_SERVER = "192.168.1.52";
+           String JDBC_DRIVER = "jdbc:mariadb://";
+           conn = DriverManager.getConnection(JDBC_DRIVER + DB_SERVER + DB_PORT + DB_NAME, DB_USER_NAME, DB_PASSWD);
        }
         return conn;
     }

@@ -30,7 +30,6 @@ public class TraficFine {
         this.idtypeOfFine = idtypeOfFine;
     }
 
-
     public Long getId() {
         return id;
     }

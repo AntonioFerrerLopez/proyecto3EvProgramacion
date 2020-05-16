@@ -29,7 +29,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class InsertTraficFine implements Initializable {
@@ -62,16 +61,11 @@ public class InsertTraficFine implements Initializable {
     private  ObservableList<Police> observablePolicesList;
     private  Police policeSelected;
     private List<TraficFineTypes> traficFineTypesList;
-    private Map<String,Double> fineTypesMap = new HashMap();
+    private HashMap fineTypesMap = new HashMap();
     private Double priceBase = 0.0 ;
     private Double totalPriceFine ;
 
     private static final String NO_FILTER = "Todos";
-    private final String POLICE_IMAGES_ROUTE = "src/resources/Images/policeImages/";
-    private final String TYPE_JPG = ".jpg";
-    private final String NO_IMAGE_POLICE = "dgpNoImage";
-    private final String EURO_SYMBOL = " €";
-    private final Integer DISCOUNT_PERCENTAGE = 20;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -158,7 +152,7 @@ public class InsertTraficFine implements Initializable {
 
     private Double getfineTypeAmmount() {
         String valueSelected = cmbTypeOfPenalty.getSelectionModel().getSelectedItem();
-        return fineTypesMap.get(valueSelected);
+        return (Double) fineTypesMap.get(valueSelected);
     }
 
     public void policeIsSelected(MouseEvent mouseEvent) {
@@ -185,6 +179,9 @@ public class InsertTraficFine implements Initializable {
         lblPoliceName.setText(policeSelected.getName());
         lblPolicePlate.setText(policeSelected.getPolicePlateNumber());
         lblPoliceDepartment.setText(policeSelected.getDepartment());
+        String NO_IMAGE_POLICE = "dgpNoImage";
+        String TYPE_JPG = ".jpg";
+        String POLICE_IMAGES_ROUTE = "src/resources/Images/policeImages/";
         if(policeSelected.getPhotoLink() == null || policeSelected.getPhotoLink().equals("NULL")){
             imgPolice = new File( POLICE_IMAGES_ROUTE + NO_IMAGE_POLICE + TYPE_JPG);
         }else{
@@ -236,6 +233,7 @@ public class InsertTraficFine implements Initializable {
 
     private void checkifDiscountState() {
         if(chDiscount.isSelected()){
+            Integer DISCOUNT_PERCENTAGE = 20;
             totalPriceFine = priceBase-((priceBase * DISCOUNT_PERCENTAGE)/100);
             updateTotalTraficFine(totalPriceFine);
         }else{
@@ -244,6 +242,7 @@ public class InsertTraficFine implements Initializable {
     }
 
     private void updateTotalTraficFine(Double priceBase) {
+        String EURO_SYMBOL = " €";
         totalPenalty.setText(priceBase + EURO_SYMBOL);
     }
 

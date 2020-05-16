@@ -88,7 +88,7 @@ public class ListOfTraficFines implements Initializable {
           colInfractorNif.setCellValueFactory(new PropertyValueFactory("nifInfractorFine"));
           colInfraction.setCellValueFactory(new PropertyValueFactory("descriptionType"));
           colInfDescription.setCellValueFactory(new PropertyValueFactory("descriptionFine"));
-          colAmount.setCellValueFactory(new PropertyValueFactory("ammountFine"));
+          colAmount.setCellValueFactory(new PropertyValueFactory("amountFine"));
           colCardPoints.setCellValueFactory(new PropertyValueFactory("drivingCardPoints"));
           colPoliceName.setCellValueFactory(new PropertyValueFactory("policeName"));
           colPolicePlate.setCellValueFactory(new PropertyValueFactory("policePlateNumber"));

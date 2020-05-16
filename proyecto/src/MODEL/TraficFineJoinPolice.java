@@ -28,6 +28,7 @@ public class TraficFineJoinPolice {
         this.policePlateNumber = policePlateNumber;
     }
 
+
     public void setDateFineFormatted(String dateFineFormatted) {
         this.dateFineFormatted = dateFineFormatted;
     }
