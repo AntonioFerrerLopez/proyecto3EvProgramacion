@@ -17,7 +17,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -26,7 +25,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -93,7 +91,7 @@ public class InsertTraficFine implements Initializable {
         priceSelector.setValueFactory(setUpSpinner);
         priceBase = priceSelector.getValue().doubleValue();
         totalPriceFine = priceBase;
-        updateTotalPenaliy(totalPriceFine);
+        updateTotalTraficFine(totalPriceFine);
     }
 
     private boolean obtainListOfPolicesAndTraficFineTypes() {
@@ -174,7 +172,6 @@ public class InsertTraficFine implements Initializable {
         anyPoliceIsSelected();
     }
 
-
     private void anyPoliceIsSelected() {
         if(!anchorPoliceCard.isVisible()){
             anchorPoliceCard.setVisible(true);
@@ -209,23 +206,28 @@ public class InsertTraficFine implements Initializable {
             }
         }
     }
-
+    public void userSelectsDate(ActionEvent actionEvent) {
+        if (dateChooser.getValue().isAfter(LocalDate.now())) {
+            Alerts.instanceOf().generateError("No Puede seleccionar una fecha posterior a la actual");
+            dateChooser.setValue(LocalDate.now());
+        }
+    }
     public void typeOfFineSelected(ActionEvent actionEvent) {
        priceBase =  getfineTypeAmmount();
-       updateTotalPenaliy(priceBase);
+       updateTotalTraficFine(priceBase);
        priceSelector.getValueFactory().setValue(priceBase);
        checkifDiscountState();
     }
 
     public void priceChangedClick(MouseEvent mouseEvent) {
         priceBase = priceSelector.getValue();
-        updateTotalPenaliy(priceBase);
+        updateTotalTraficFine(priceBase);
         checkifDiscountState();
     }
 
     public void releasedSpinner(KeyEvent keyEvent) {
          priceBase = priceSelector.getValue();
-         updateTotalPenaliy(priceBase);
+         updateTotalTraficFine(priceBase);
          checkifDiscountState();
     }
 
@@ -236,13 +238,13 @@ public class InsertTraficFine implements Initializable {
     private void checkifDiscountState() {
         if(chDiscount.isSelected()){
             totalPriceFine = priceBase-((priceBase * DISCOUNT_PERCENTAGE)/100);
-            updateTotalPenaliy(totalPriceFine);
+            updateTotalTraficFine(totalPriceFine);
         }else{
-            updateTotalPenaliy(priceBase);
+            updateTotalTraficFine(priceBase);
         }
     }
 
-    private void updateTotalPenaliy(Double priceBase) {
+    private void updateTotalTraficFine(Double priceBase) {
         totalPenalty.setText(priceBase + EURO_SYMBOL);
     }
 
@@ -306,13 +308,7 @@ public class InsertTraficFine implements Initializable {
     }
 
 
-    public void userSelectsDate(ActionEvent actionEvent) {
-        if (dateChooser.getValue().equals(LocalDate.now().plusDays(1))) {
-            Alerts.instanceOf().generateError("No Puede seleccionar una fecha posterior a la actual");
-           dateChooser.setValue(LocalDate.now());
-        }
 
-    }
 
 
 

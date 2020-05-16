@@ -1,7 +1,6 @@
 package DATA.DATABASE;
 
 import VIEW.TOOLS.Alerts;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -28,7 +27,7 @@ public class DbConnector {
 
     public Connection getConn() throws SQLException {
        if(conn == null){
-         conn = DriverManager.getConnection(JDBC_DRIVER+DB_SERVER+DB_PORT+DB_NAME , DB_USER_NAME , DB_PASSWD);
+                conn = DriverManager.getConnection(JDBC_DRIVER+DB_SERVER+DB_PORT+DB_NAME , DB_USER_NAME , DB_PASSWD);
        }
         return conn;
     }
