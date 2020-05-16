@@ -16,6 +16,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -29,15 +30,15 @@ public class MainView implements Initializable{
     }
 
 
-    public void openViewInsertPenalty(ActionEvent actionEvent) {
+    public void openViewInsertPenalty(ActionEvent actionEvent){
         openModalWidow("../INSERTTRAFICFINES/InsertTraficFine.fxml", "No se ha podido acceder a La lista de multas");
     }
 
-    public void openViewListOfPenalties(ActionEvent actionEvent) {
+    public void openViewListOfPenalties(ActionEvent actionEvent){
         openModalWidow("../LISTTRAFICFINE/ListOfTraficFines.fxml", "No se ha podido acceder a la Inserción de Multas ");
     }
 
-    public void openViewDataPolice(ActionEvent actionEvent) {
+    public void openViewDataPolice(ActionEvent actionEvent){
         openModalWidow("../DATAPOLICE/DataPolice.fxml", "No se ha podido acceder a los datos policiales ");
     }
 
@@ -64,6 +65,11 @@ public class MainView implements Initializable{
     }
 
     private void finaliceProgram() {
+        try {
+            DbConnector.dbInstance().closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         Stage stage = (Stage) lbltoday.getScene().getWindow();
         stage.close();
     }

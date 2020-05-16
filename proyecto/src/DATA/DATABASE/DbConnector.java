@@ -33,22 +33,15 @@ public class DbConnector {
         return conn;
     }
 
-    public boolean closeConnection(){
-        boolean closed  = false;
-        try {
-            if(!conn.isClosed()){
-                try {
-                    conn.close();
-                    closed =  true;
-                    this.conn = null ;
-                }catch (SQLException closingError){
-                    Alerts.instanceOf().generateWarningWithErrorCode(closingError.getErrorCode() , closingError.getMessage());
-                }
+    public void closeConnection(){
+        if(conn != null ){
+            try {
+                conn.close();
+                this.conn = null ;
+            }catch (SQLException closingError){
+                Alerts.instanceOf().generateWarningWithErrorCode(closingError.getErrorCode() , closingError.getMessage());
             }
-        } catch (SQLException isCloseError) {
-            Alerts.instanceOf().generateWarningWithErrorCode(isCloseError.getErrorCode() , isCloseError.getMessage());
         }
-        return closed;
     }
 
 }

@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -87,7 +89,6 @@ public class InsertTraficFine implements Initializable {
         }
         anchorPoliceCard.setVisible(false);
         anchorPenalty.setVisible(false);
-
         SpinnerValueFactory.DoubleSpinnerValueFactory setUpSpinner =  new SpinnerValueFactory.DoubleSpinnerValueFactory(1,100000,priceBase,1);
         priceSelector.setValueFactory(setUpSpinner);
         priceBase = priceSelector.getValue().doubleValue();
@@ -173,6 +174,7 @@ public class InsertTraficFine implements Initializable {
         anyPoliceIsSelected();
     }
 
+
     private void anyPoliceIsSelected() {
         if(!anchorPoliceCard.isVisible()){
             anchorPoliceCard.setVisible(true);
@@ -216,9 +218,15 @@ public class InsertTraficFine implements Initializable {
     }
 
     public void priceChangedClick(MouseEvent mouseEvent) {
-        priceBase = priceSelector.getValue().doubleValue();
+        priceBase = priceSelector.getValue();
         updateTotalPenaliy(priceBase);
         checkifDiscountState();
+    }
+
+    public void releasedSpinner(KeyEvent keyEvent) {
+         priceBase = priceSelector.getValue();
+         updateTotalPenaliy(priceBase);
+         checkifDiscountState();
     }
 
     public void discountChanged(ActionEvent actionEvent) {
@@ -305,5 +313,7 @@ public class InsertTraficFine implements Initializable {
         }
 
     }
+
+
 
 }

@@ -28,7 +28,6 @@ public class TraficFineDAO implements CRUD<TraficFine> {
 
     @Override
     public boolean insert(TraficFine traficFine) throws SQLException {
-        boolean isInserted;
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, traficFine.getDescription());
         statement.setTimestamp(2, Timestamp.valueOf(traficFine.getDate()));
@@ -36,8 +35,7 @@ public class TraficFineDAO implements CRUD<TraficFine> {
         statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifInfractor());
         statement.setLong(6, traficFine.getIdtypeOfFine());
-        isInserted = statement.execute();
-        return isInserted;
+        return statement.execute();
     }
 
     @Override
@@ -80,11 +78,9 @@ public class TraficFineDAO implements CRUD<TraficFine> {
 
     @Override
     public boolean deleteOneById(Long id) throws SQLException {
-        boolean isDeleted;
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
-        isDeleted = deletePs.execute();
-        return isDeleted;
+        return  deletePs.execute();
     }
     private List<TraficFine> formatToObject(ResultSet resultFromDb) throws SQLException {
         List<TraficFine> finesFromDb = new ArrayList<>();

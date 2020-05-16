@@ -31,21 +31,18 @@ public class TraficFineTypesDAO implements CRUD<TraficFineTypes> {
 
     @Override
     public boolean insert(TraficFineTypes polRelFine) throws SQLException {
-        boolean isInserted;
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, polRelFine.getDescription());
         statement.setDouble(2, polRelFine.getAmmount());
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
-        isInserted = statement.execute();
-        return isInserted;
+        return  statement.execute();
     }
 
     @Override
     public List<TraficFineTypes> insertFromList(List<TraficFineTypes> goL) {
         return null;
     }
-
 
     @Override
     public List<TraficFineTypes> obtainAll() throws SQLException {
@@ -73,24 +70,20 @@ public class TraficFineTypesDAO implements CRUD<TraficFineTypes> {
 
     @Override
     public boolean updateOneById(Long id, TraficFineTypes polRelFine) throws SQLException {
-        boolean isUpdated;
         PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, polRelFine.getDescription());
         statement.setDouble(2, polRelFine.getAmmount());
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
         statement.setLong(5, id);
-        isUpdated = statement.execute();
-        return isUpdated;
+        return statement.execute();
     }
 
     @Override
     public boolean deleteOneById(Long id) throws SQLException {
-        boolean isDeleted;
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
-        isDeleted = deletePs.execute();
-        return isDeleted;
+        return deletePs.execute();
     }
 
     private List<TraficFineTypes> formatToObject(ResultSet resultFromDb) throws SQLException {

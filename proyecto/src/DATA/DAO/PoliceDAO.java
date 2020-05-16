@@ -30,15 +30,14 @@ public class PoliceDAO implements CRUD<Police> {
     }
     @Override
     public boolean insert(Police police) throws SQLException {
-        boolean isInserted;
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, police.getName());
         statement.setString(2, police.getPolicePlateNumber());
         statement.setInt(3, police.getAge());
         statement.setString(4, police.getDepartment());
         statement.setString(5, police.getPhotoLink());
-        isInserted = statement.execute();
-        return isInserted;
+        return statement.execute();
+
     }
 
     @Override
@@ -47,7 +46,7 @@ public class PoliceDAO implements CRUD<Police> {
         for(Police police : policeList ){
             try {
                 insert(police);
-            } catch (SQLException throwables) {
+            } catch (SQLException errorSql) {
                 notInsertedPolice.add(police);
             }
         }
@@ -83,7 +82,6 @@ public class PoliceDAO implements CRUD<Police> {
 
     @Override
     public boolean updateOneById(Long id, Police police) throws SQLException {
-        boolean isUpdated ;
         PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, police.getName());
         statement.setString(2, police.getPolicePlateNumber());
@@ -91,17 +89,14 @@ public class PoliceDAO implements CRUD<Police> {
         statement.setString(4, police.getDepartment());
         statement.setString(5, police.getPhotoLink());
         statement.setLong(6, id);
-        isUpdated = statement.execute();
-        return isUpdated;
+        return statement.execute();
     }
 
     @Override
     public boolean deleteOneById(Long id) throws SQLException {
-        boolean isDeleted;
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
-        isDeleted = deletePs.execute();
-        return isDeleted;
+        return  deletePs.execute();
     }
 
     public void updatePhotoLinkAllPolices() throws SQLException {
