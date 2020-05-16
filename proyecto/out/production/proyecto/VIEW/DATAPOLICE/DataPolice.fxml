@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="239.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.DATAPOLICE.DataPolice">
+<AnchorPane fx:id="rootPane" prefHeight="328.0" prefWidth="610.0" style="-fx-border-color: blue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.DATAPOLICE.DataPolice">
    <children>
-      <JFXButton fx:id="btnClose" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="190.0" layoutY="155.0" onAction="#closeView" prefHeight="28.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="ATRAS" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton fx:id="btnClose" alignment="CENTER" buttonType="RAISED" cancelButton="true" layoutX="516.0" layoutY="283.0" onAction="#closeView" prefHeight="28.0" prefWidth="80.0" style="-fx-border-color: RED; -fx-border-radius: 50%;" text="ATRAS" textAlignment="CENTER" textFill="#c23427" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="Droid Sans Fallback" size="11.0" />
          </font>
@@ -24,10 +24,10 @@
             <FontAwesomeIconView fill="RED" glyphName="ANGLE_DOUBLE_LEFT" size="20" />
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="135.0" layoutY="63.0" onAction="#loadAgents" style="-fx-border-color: blue; -fx-border-radius: 10;" text="CARGAR DESDE ARCHIVO" />
+      <JFXButton fx:id="btnLoad" buttonType="RAISED" layoutX="201.0" layoutY="129.0" onAction="#loadAgents" style="-fx-border-color: blue; -fx-border-radius: 10;" text="CARGAR DESDE ARCHIVO" />
       <JFXSnackbar fx:id="snackInfo" layoutX="301.0" layoutY="205.0" />
-      <JFXButton fx:id="btnUpadatePhotoLink" buttonType="RAISED" layoutX="141.0" layoutY="101.0" onAction="#updatePhotoLink" style="-fx-border-color: blue; -fx-border-radius: 10;" text="Actualizar Fotos Policias" />
-      <HBox alignment="CENTER" layoutY="8.0" prefHeight="44.0" prefWidth="458.0">
+      <JFXButton fx:id="btnUpadatePhotoLink" buttonType="RAISED" layoutX="207.0" layoutY="177.0" onAction="#updatePhotoLink" style="-fx-border-color: blue; -fx-border-radius: 10;" text="Actualizar Fotos Policias" />
+      <HBox alignment="CENTER" layoutX="66.0" layoutY="22.0" prefHeight="44.0" prefWidth="458.0">
          <children>
             <ImageView fitHeight="42.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
