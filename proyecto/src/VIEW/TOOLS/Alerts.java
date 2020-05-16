@@ -1,9 +1,6 @@
 package VIEW.TOOLS;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-
-import java.util.Optional;
 
 public class Alerts {
     private  static Alerts instanceOf = null ;
@@ -38,6 +35,4 @@ public class Alerts {
         confirmation.setContentText(msj);
         confirmation.showAndWait();
     }
-
-
 }

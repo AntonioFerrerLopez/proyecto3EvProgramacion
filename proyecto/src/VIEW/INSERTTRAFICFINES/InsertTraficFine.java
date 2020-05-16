@@ -21,7 +21,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
@@ -59,7 +58,6 @@ public class InsertTraficFine implements Initializable {
     public AnchorPane anchorPolice;
     public JFXComboBox cmDepartmentFilter;
 
-
     private List<Police> policesList;
     private  ObservableList<Police> observablePolicesList;
     private  Police policeSelected;
@@ -89,7 +87,7 @@ public class InsertTraficFine implements Initializable {
         anchorPenalty.setVisible(false);
         SpinnerValueFactory.DoubleSpinnerValueFactory setUpSpinner =  new SpinnerValueFactory.DoubleSpinnerValueFactory(1,100000,priceBase,1);
         priceSelector.setValueFactory(setUpSpinner);
-        priceBase = priceSelector.getValue().doubleValue();
+        priceBase = priceSelector.getValue();
         totalPriceFine = priceBase;
         updateTotalTraficFine(totalPriceFine);
     }
@@ -150,12 +148,11 @@ public class InsertTraficFine implements Initializable {
         observablePolicesList.setAll(policesList);
         tvPoliceSelector.setItems(observablePolicesList);
         tvPoliceSelector.refresh();
-
     }
 
     private void setupFineTypesMap() {
         for (TraficFineTypes trafilFineType : traficFineTypesList){
-            fineTypesMap.put(trafilFineType.getDescription() , trafilFineType.getAmmount());
+            fineTypesMap.put(trafilFineType.getDescription() , trafilFineType.getAmount());
         }
     }
 
@@ -206,12 +203,14 @@ public class InsertTraficFine implements Initializable {
             }
         }
     }
+
     public void userSelectsDate(ActionEvent actionEvent) {
         if (dateChooser.getValue().isAfter(LocalDate.now())) {
             Alerts.instanceOf().generateError("No Puede seleccionar una fecha posterior a la actual");
             dateChooser.setValue(LocalDate.now());
         }
     }
+
     public void typeOfFineSelected(ActionEvent actionEvent) {
        priceBase =  getfineTypeAmmount();
        updateTotalTraficFine(priceBase);
@@ -277,7 +276,6 @@ public class InsertTraficFine implements Initializable {
         try {
             String  typeSelected = cmbTypeOfPenalty.getSelectionModel().getSelectedItem();
             fineId = TraficFineTypesDAO.instanceOf().obtainIdFirterByDescription(typeSelected);
-            System.out.println(fineId + "ID DE RETORNO");
         } catch (SQLException errorSql) {
             Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode() , errorSql.getMessage());
         }

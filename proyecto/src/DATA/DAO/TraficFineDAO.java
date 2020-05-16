@@ -31,18 +31,12 @@ public class TraficFineDAO implements CRUD<TraficFine> {
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, traficFine.getDescription());
         statement.setTimestamp(2, Timestamp.valueOf(traficFine.getDate()));
-        statement.setDouble(3, traficFine.getAmmount());
+        statement.setDouble(3, traficFine.getAmount());
         statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifInfractor());
         statement.setLong(6, traficFine.getIdtypeOfFine());
         return statement.execute();
     }
-
-    @Override
-    public List<TraficFine> insertFromList(List<TraficFine> goL) {
-        return null;
-    }
-
 
     @Override
     public List<TraficFine> obtainAll() throws SQLException {
@@ -68,7 +62,7 @@ public class TraficFineDAO implements CRUD<TraficFine> {
         PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, traficFine.getDescription());
         statement.setTimestamp(2, Timestamp.valueOf(traficFine.getDate()));
-        statement.setDouble(3, traficFine.getAmmount());
+        statement.setDouble(3, traficFine.getAmount());
         statement.setLong(4, traficFine.getIdPolice());
         statement.setString(5, traficFine.getNifInfractor());
         statement.setLong(6, traficFine.getIdtypeOfFine());
@@ -98,6 +92,4 @@ public class TraficFineDAO implements CRUD<TraficFine> {
         }
         return finesFromDb ;
     }
-
-
 }

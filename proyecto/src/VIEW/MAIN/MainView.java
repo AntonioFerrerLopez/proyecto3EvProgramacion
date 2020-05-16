@@ -5,18 +5,15 @@ import VIEW.TOOLS.Alerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -28,7 +25,6 @@ public class MainView implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         lbltoday.setText("Valencia a " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
-
 
     public void openViewInsertPenalty(ActionEvent actionEvent){
         openModalWidow("../INSERTTRAFICFINES/InsertTraficFine.fxml", "No se ha podido acceder a La lista de multas");

@@ -6,7 +6,7 @@ public class TraficFineJoinPolice {
     private Long idFine ;
     private String descriptionFine ;
     private LocalDateTime dateFine;
-    private Double ammountFine ;
+    private Double amountFine;
     private String nifInfractorFine ;
     private String descriptionType ;
     private Integer drivingCardPoints;
@@ -14,26 +14,38 @@ public class TraficFineJoinPolice {
     private String policePlateNumber ;
     private String dateFineFormatted;
 
-
-    public TraficFineJoinPolice(Long idFine, String descriptionFine, LocalDateTime dateFine, Double ammountFine, String nifInfractorFine, String descriptionType, Integer drivingCardPoints, String policeName, String policePlateNumber) {
+    public TraficFineJoinPolice(Long idFine, String descriptionFine, LocalDateTime dateFine,
+                                Double amountFine, String nifInfractorFine, String descriptionType,
+                                Integer drivingCardPoints, String policeName, String policePlateNumber) {
         this.idFine = idFine;
         this.descriptionFine = descriptionFine;
         this.dateFine = dateFine;
-        this.ammountFine = ammountFine;
+        this.amountFine = amountFine;
         this.nifInfractorFine = nifInfractorFine;
         this.descriptionType = descriptionType;
         this.drivingCardPoints = drivingCardPoints;
         this.policeName = policeName;
         this.policePlateNumber = policePlateNumber;
-
-    }
-
-    public String getDateFineFormatted() {
-        return dateFineFormatted;
     }
 
     public void setDateFineFormatted(String dateFineFormatted) {
         this.dateFineFormatted = dateFineFormatted;
+    }
+
+    public LocalDateTime getDateFine() {
+        return dateFine;
+    }
+
+    public Double getAmountFine() {
+        return amountFine;
+    }
+
+    public String getPoliceName() {
+        return policeName;
+    }
+
+    public String getPolicePlateNumber() {
+        return policePlateNumber;
     }
 
     public Long getIdFine() {
@@ -52,20 +64,12 @@ public class TraficFineJoinPolice {
         this.descriptionFine = descriptionFine;
     }
 
-    public LocalDateTime getDateFine() {
-        return dateFine;
-    }
-
     public void setDateFine(LocalDateTime dateFine) {
         this.dateFine = dateFine;
     }
 
-    public Double getAmmountFine() {
-        return ammountFine;
-    }
-
-    public void setAmmountFine(Double ammountFine) {
-        this.ammountFine = ammountFine;
+    public void setAmountFine(Double amountFine) {
+        this.amountFine = amountFine;
     }
 
     public String getNifInfractorFine() {
@@ -92,20 +96,16 @@ public class TraficFineJoinPolice {
         this.drivingCardPoints = drivingCardPoints;
     }
 
-    public String getPoliceName() {
-        return policeName;
-    }
-
     public void setPoliceName(String policeName) {
         this.policeName = policeName;
     }
 
-    public String getPolicePlateNumber() {
-        return policePlateNumber;
-    }
-
     public void setPolicePlateNumber(String policePlateNumber) {
         this.policePlateNumber = policePlateNumber;
+    }
+
+    public String getDateFineFormatted() {
+        return dateFineFormatted;
     }
 
     @Override
@@ -114,7 +114,7 @@ public class TraficFineJoinPolice {
                 "idFine=" + idFine +
                 ", descriptionFine='" + descriptionFine + '\'' +
                 ", dateFine=" + dateFine +
-                ", ammountFine=" + ammountFine +
+                ", ammountFine=" + amountFine +
                 ", nifInfractorFine='" + nifInfractorFine + '\'' +
                 ", descriptionType='" + descriptionType + '\'' +
                 ", drivingCardPoints=" + drivingCardPoints +

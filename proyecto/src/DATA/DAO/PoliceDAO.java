@@ -6,7 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class PoliceDAO implements CRUD<Police> {
     private static PoliceDAO instance = null ;
     private Connection conn;
@@ -28,6 +27,7 @@ public class PoliceDAO implements CRUD<Police> {
         }
         return instance;
     }
+
     @Override
     public boolean insert(Police police) throws SQLException {
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
@@ -41,32 +41,10 @@ public class PoliceDAO implements CRUD<Police> {
     }
 
     @Override
-    public List<Police> insertFromList(List<Police> policeList) {
-        List<Police> notInsertedPolice = new ArrayList<>();
-        for(Police police : policeList ){
-            try {
-                insert(police);
-            } catch (SQLException errorSql) {
-                notInsertedPolice.add(police);
-            }
-        }
-        return notInsertedPolice;
-    }
-
-
-    @Override
     public List<Police> obtainAll() throws SQLException {
         List<Police> policeList;
         Statement obtainAllStm = conn.createStatement();
         policeList = formatToObject( obtainAllStm.executeQuery(obtainAllSQL) );
-        return policeList;
-    }
-
-    public List<Police> obtainListByDepartment(String department) throws SQLException {
-        List<Police> policeList;
-        PreparedStatement obtainListFiltered = conn.prepareStatement(obtainOneByDepartmentSQL);
-        obtainListFiltered.setString(1, department);
-        policeList = formatToObject(obtainListFiltered.executeQuery());
         return policeList;
     }
 
@@ -97,6 +75,26 @@ public class PoliceDAO implements CRUD<Police> {
         PreparedStatement deletePs  = conn.prepareStatement(deleteOneByIdSQL);
         deletePs.setLong(1, id);
         return  deletePs.execute();
+    }
+
+    public List<Police> obtainListByDepartment(String department) throws SQLException {
+        List<Police> policeList;
+        PreparedStatement obtainListFiltered = conn.prepareStatement(obtainOneByDepartmentSQL);
+        obtainListFiltered.setString(1, department);
+        policeList = formatToObject(obtainListFiltered.executeQuery());
+        return policeList;
+    }
+
+    public List<Police> insertFromList(List<Police> policeList) {
+        List<Police> notInsertedPolice = new ArrayList<>();
+        for(Police police : policeList ){
+            try {
+                insert(police);
+            } catch (SQLException errorSql) {
+                notInsertedPolice.add(police);
+            }
+        }
+        return notInsertedPolice;
     }
 
     public void updatePhotoLinkAllPolices() throws SQLException {

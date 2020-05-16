@@ -2,7 +2,6 @@ package DATA.DAO;
 
 import DATA.DATABASE.DbConnector;
 import MODEL.TraficFineTypes;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,15 +32,10 @@ public class TraficFineTypesDAO implements CRUD<TraficFineTypes> {
     public boolean insert(TraficFineTypes polRelFine) throws SQLException {
         PreparedStatement statement  = conn.prepareStatement(insertSQL);
         statement.setString(1, polRelFine.getDescription());
-        statement.setDouble(2, polRelFine.getAmmount());
+        statement.setDouble(2, polRelFine.getAmount());
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
         return  statement.execute();
-    }
-
-    @Override
-    public List<TraficFineTypes> insertFromList(List<TraficFineTypes> goL) {
-        return null;
     }
 
     @Override
@@ -72,7 +66,7 @@ public class TraficFineTypesDAO implements CRUD<TraficFineTypes> {
     public boolean updateOneById(Long id, TraficFineTypes polRelFine) throws SQLException {
         PreparedStatement statement  = conn.prepareStatement(updateOneByIdSQL);
         statement.setString(1, polRelFine.getDescription());
-        statement.setDouble(2, polRelFine.getAmmount());
+        statement.setDouble(2, polRelFine.getAmount());
         statement.setString(3, polRelFine.getFineType());
         statement.setInt(4, polRelFine.getDrivingCardPoints());
         statement.setLong(5, id);
@@ -99,6 +93,4 @@ public class TraficFineTypesDAO implements CRUD<TraficFineTypes> {
         }
         return polRelFineFromDb ;
     }
-
-
 }

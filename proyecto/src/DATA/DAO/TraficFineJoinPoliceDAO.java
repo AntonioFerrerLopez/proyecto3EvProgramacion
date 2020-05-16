@@ -1,9 +1,7 @@
 package DATA.DAO;
 
 import DATA.DATABASE.DbConnector;
-import MODEL.TraficFine;
 import MODEL.TraficFineJoinPolice;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +14,10 @@ public class TraficFineJoinPoliceDAO {
     private static TraficFineJoinPoliceDAO instance = null ;
     private final Connection conn ;
 
-    private final String obtainAllFinesRelatedPolicesSQL = "SELECT multas.id, multas.descripcion, multas.fecha , multas.importe , multas.nifinfractor , multastipo.descripcion, multastipo.carnetpuntos , policia.nombre  ,policia.numplaca FROM multastipo  INNER JOIN multas ON multas.idtipo = multastipo.id INNER JOIN  policia ON policia.idPolicia = multas.idpolicia; ";
+    private final String obtainAllFinesRelatedPolicesSQL = "SELECT multas.id, multas.descripcion, multas.fecha , " +
+            "multas.importe , multas.nifinfractor , multastipo.descripcion, multastipo.carnetpuntos , policia.nombre  ," +
+            "policia.numplaca FROM multastipo  INNER JOIN multas ON multas.idtipo = multastipo.id " +
+            "INNER JOIN  policia ON policia.idPolicia = multas.idpolicia; ";
 
     public TraficFineJoinPoliceDAO() throws SQLException{
         this.conn =  DbConnector.dbInstance().getConn();

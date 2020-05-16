@@ -1,6 +1,5 @@
 package VIEW.LISTTRAFICFINE;
 
-
 import DATA.DAO.PoliceDAO;
 import DATA.DAO.TraficFineJoinPoliceDAO;
 import MODEL.Police;
@@ -63,7 +62,7 @@ public class ListOfTraficFines implements Initializable {
         updateLvPolicesList();
         setupTableOfTraficFines();
         lvPolicesList.setDisable(true);
-        calculateTotalAmmountAllFines();
+        calculateTotalAmountAllFines();
         lvPolicesList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
@@ -82,7 +81,6 @@ public class ListOfTraficFines implements Initializable {
         options.add(SELECT_PLATE_NUMBER);
         filterSelector.setItems(options);
         filterSelector.getSelectionModel().selectFirst();
-
     }
 
     private void setupTableOfTraficFines() {
@@ -94,8 +92,8 @@ public class ListOfTraficFines implements Initializable {
           colCardPoints.setCellValueFactory(new PropertyValueFactory("drivingCardPoints"));
           colPoliceName.setCellValueFactory(new PropertyValueFactory("policeName"));
           colPolicePlate.setCellValueFactory(new PropertyValueFactory("policePlateNumber"));
+          tableOfTraficFines.getSortOrder().add(colPoliceName);
     }
-
 
     public void filterChanged(ActionEvent actionEvent) {
         String filter = filterSelector.getSelectionModel().getSelectedItem();
@@ -104,7 +102,7 @@ public class ListOfTraficFines implements Initializable {
             lvPolicesList.setDisable(true);
             finesListToPrint.setAll(allFinesOnDb);
             tableOfTraficFines.refresh();
-            calculateTotalAmmountAllFines();
+            calculateTotalAmountAllFines();
         }
         if(filter.equals(SELECT_NAME) || filter.equals(SELECT_PLATE_NUMBER) ){
             lvPolicesList.setDisable(false);
@@ -112,17 +110,9 @@ public class ListOfTraficFines implements Initializable {
         }
     }
 
-    private void calculateTotalAmmountAllFines() {
-        for(TraficFineJoinPolice fineOnDb : allFinesOnDb){
-            updateTotalFineAmount(fineOnDb.getAmmountFine());
-        }
-        lblTotalTraficFineAmmount.setText(totalAmount + " €");
-    }
-
     private void updateLvPolicesList() {
         ObservableList<String> listOfPolices = FXCollections.observableArrayList();
         lvPolicesList.setItems(listOfPolices);
-
         try {
             List<Police> policesFromDb = PoliceDAO.instanceOf().obtainAll();
             for(Police police : policesFromDb){
@@ -137,38 +127,43 @@ public class ListOfTraficFines implements Initializable {
             Alerts.instanceOf().generateWarningWithErrorCode(errorSql.getErrorCode(),errorSql.getMessage());
         }
     }
-
     public void hasSelection(MouseEvent mouseEvent) {
         totalAmount = 0.0;
         filterAndUpdateBySelection();
     }
 
+    private void calculateTotalAmountAllFines() {
+        for(TraficFineJoinPolice fineOnDb : allFinesOnDb){
+            updateTotalFineAmount(fineOnDb.getAmountFine());
+        }
+        lblTotalTraficFineAmmount.setText(totalAmount + " €");
+    }
+
     private void filterAndUpdateBySelection() {
         String typeOfSelection = filterSelector.getSelectionModel().getSelectedItem();
         finesListToPrint.clear();
-        System.out.println(lvPolicesList.getSelectionModel().getSelectedItems() + " TODOS" );
-        System.out.println(lvPolicesList.getSelectionModel().getSelectedItem() + " UNO" );
         for(TraficFineJoinPolice fine : allFinesOnDb){
             if(typeOfSelection.equals(SELECT_NAME)){
                 if(existsInList(fine)){
                     finesListToPrint.add(fine);
-                    updateTotalFineAmount(fine.getAmmountFine());
+                    updateTotalFineAmount(fine.getAmountFine());
                 }
             }
             if(typeOfSelection.equals(SELECT_PLATE_NUMBER)){
                 if(existsInList(fine)){
                     finesListToPrint.add(fine);
-                    updateTotalFineAmount(fine.getAmmountFine());
+                    updateTotalFineAmount(fine.getAmountFine());
                 }
             }
         }
         lblTotalTraficFineAmmount.setText(totalAmount + " €");
+        tableOfTraficFines.getSortOrder().add(colPoliceName);
         tableOfTraficFines.refresh();
     }
+
     private boolean existsInList(TraficFineJoinPolice fine){
         ObservableList<String> selection = lvPolicesList.getSelectionModel().getSelectedItems();
         return (selection.contains(fine.getPoliceName()) || selection.contains(fine.getPolicePlateNumber()) );
-
     }
 
     private void updateTotalFineAmount(Double amount) {
@@ -178,7 +173,6 @@ public class ListOfTraficFines implements Initializable {
     public void BackToMain(ActionEvent actionEvent) {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.close();
-
     }
 
 }
